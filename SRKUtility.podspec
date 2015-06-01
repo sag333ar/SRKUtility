@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 	s.license		=	{ :type	=> 'BSD' }
 	s.platform		=	:ios, '7.0'
     s.requires_arc  =   true
-    s.source        =   { :git => 'https://github.com/sag333ar/SRKUtility.git', :branch => 'master', :tag => '1.0.0' }
+    s.source        =   { :git => 'https://github.com/sag333ar/SRKUtility.git', :branch => 'master', :tag => '1.0.1' }
     s.subspec 'SRKUtility' do |srkutility|
         srkutility.source_files	=	'SRKUtility/*.{h,m}'
     end
