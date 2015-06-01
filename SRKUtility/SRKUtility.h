@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
 void ALERT(NSString *title, NSString *message,NSString *canceBtnTitle,id delegate,NSString *otherButtonTitles, ... );
 
 #define ALERT_ERROR(title,message)    dispatch_async(dispatch_get_main_queue(), ^{  ALERT(title, message, @"Okay", nil, nil); }); 
 
-#define APP_DEL         (AppDelegate *)[[UIApplication sharedApplication] delegate]
 
 @interface SRKUtility : NSObject
 
