@@ -5,7 +5,7 @@
 Pod::Spec.new do |s|
 	s.version		=	'1.0.0'
 	s.name			=	'SRKUtility'
-    s.summary       =   'A pod which helps you to easily save values to `NSUserDefaults`, display `MBProgressHUD` and check Network Reachability. Visit http://sagarrkothari.com for more information.'
+    s.summary       =   'A pod which helps you to easily save values to NSUserDefaults, display MBProgressHUD and check Network Reachability.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
 	s.homepage		=	"http://sagarrkothari.com"
 	s.license		=	{ :type	=> 'BSD' }
