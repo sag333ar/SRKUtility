@@ -11,7 +11,7 @@ Import the library in your class as indicated below.
 
     #import <SRKUtility/SRKUtility.h>
 
-###Sample Code
+***
 
 ####Accessing `NSUserDefaults`
 
@@ -28,6 +28,8 @@ Import the library in your class as indicated below.
 #####Deleting value from `NSUserDefaults`
 
      [SRKUtility deleteValueForKey:@"UserFavGame"];
+
+***
 
 ###Dealing with `MBProgressHUD`
 
@@ -52,11 +54,14 @@ This is one time settings only. Once it is set, It'll be applicable for all prog
 
      [SRKUtility setFontForProgressHUDDetailedLabel:[UIFont systemFontOfSize:11]];
 
+***
+
 ###Reachability Integration
 
 #####Initiate Reachability
 
-     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     - (BOOL)application:(UIApplication *)application 
+        didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
          [SRKUtility isReachableToLocalNetwork];
      }
 
@@ -67,6 +72,8 @@ This is one time settings only. Once it is set, It'll be applicable for all prog
      } else {
         NSLog(@"Oh No! Internet not working :(");
      }
+
+***
 
 ### Alerts in One line
 
@@ -97,3 +104,5 @@ This is one time settings only. Once it is set, It'll be applicable for all prog
 #####Showing error message
 
      ALERT_ERROR(@"Oh Ah!", @"Some error occured.");
+
+***
