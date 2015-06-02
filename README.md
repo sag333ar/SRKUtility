@@ -31,8 +31,6 @@ Import the library in your class as indicated below.
 
 ***
 
-###Dealing with `MBProgressHUD`
-
 ####Show and Hide `MBProgressHUD`
 
 #####Displaying `MBProgressHUD`
@@ -56,7 +54,7 @@ This is one time settings only. Once it is set, It'll be applicable for all prog
 
 ***
 
-###Reachability Integration
+####Reachability Integration
 
 #####Initiate Reachability
 
@@ -75,7 +73,7 @@ This is one time settings only. Once it is set, It'll be applicable for all prog
 
 ***
 
-### Alerts in One line
+#### Alerts in One line
 
 #####Declaration of Alert method is as follows.
 
