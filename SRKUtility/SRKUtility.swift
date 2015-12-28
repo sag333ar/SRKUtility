@@ -8,8 +8,59 @@
 
 import UIKit
 import Foundation
+import MBProgressHUD
+import KSReachability
 
 @objc public class SRKUtility: NSObject {
+	
+	public static let sharedInstance = SRKUtility()
+	static var progressHUD: MBProgressHUD? = nil
+	
+	let obj_KSReachability = KSReachability.reachabilityToInternet()
+	
+	public class func isReachableToNetwork() -> Bool {
+		return self.sharedInstance.obj_KSReachability.reachable
+	}
+	
+	public class func saveValueForKey(value:AnyObject, forKey:String) -> Bool {
+		NSUserDefaults.standardUserDefaults().setObject(value, forKey: forKey)
+		return NSUserDefaults.standardUserDefaults().synchronize()
+	}
+	
+	public class func getValueForKey(forKey:String) -> AnyObject? {
+		return NSUserDefaults.standardUserDefaults().valueForKey(forKey)
+	}
+	
+	public class func deleteValueForKey(forKey:String) -> Bool {
+		NSUserDefaults.standardUserDefaults().removeObjectForKey(forKey)
+		return NSUserDefaults.standardUserDefaults().synchronize()
+	}
+	
+	public class func showProgressHUD(from:UIViewController, title:String, subtitle:String, titleFont:UIFont?, subtitleFont:UIFont?) {
+		NSOperationQueue.mainQueue().addOperationWithBlock { () -> Void in
+			self.progressHUD = MBProgressHUD(view: from.view)
+			from.view.addSubview(self.progressHUD!)
+			self.progressHUD?.labelText = title
+			self.progressHUD?.detailsLabelText = subtitle
+			if let font = titleFont {
+				self.progressHUD?.labelFont = font
+			}
+			if let font = subtitleFont {
+				self.progressHUD?.detailsLabelFont = font
+			}
+			self.progressHUD?.removeFromSuperViewOnHide = true
+			self.progressHUD?.show(false)
+		}
+	}
+	
+	public class func hideProgressHUD() {
+		if let hud = self.progressHUD {
+			if let _ = hud.superview {
+				hud.hide(false)
+			}
+			self.progressHUD = nil
+		}
+	}
 	
 	public class func showErrorMessage(title:String, message:String, viewController:UIViewController) {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)

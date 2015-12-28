@@ -1,0 +1,4 @@
+target "Example" do
+	pod 'SRKUtility'
+	use_frameworks!
+end
