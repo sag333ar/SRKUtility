@@ -13,7 +13,7 @@ import Foundation
 	
 	public class func showErrorMessage(title:String, message:String, viewController:UIViewController) {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-		NSLo
+
 		ac.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
 			ac.dismissViewControllerAnimated(true, completion: nil)
 		}))
