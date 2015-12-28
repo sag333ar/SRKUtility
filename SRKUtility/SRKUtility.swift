@@ -96,4 +96,12 @@ import Foundation
 		task.resume()
 		return task
 	}
+	
+	public class func addURLEncoding(string:String) -> String {
+		return string.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+	}
+	
+	public class func removeURLEncoding(string:String) -> String {
+		return string.stringByRemovingPercentEncoding!
+	}
 }
