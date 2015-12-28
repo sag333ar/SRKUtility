@@ -12,7 +12,8 @@ import UIKit
 	
 	public class func showErrorMessage(title:String, message:String, viewController:UIViewController) {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-		ac.addAction(UIAlertAction(title: LOCALIZE("Okay"), style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
+		NSLo
+		ac.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
 			ac.dismissViewControllerAnimated(true, completion: nil)
 		}))
 		viewController.presentViewController(ac, animated: true, completion: nil)
