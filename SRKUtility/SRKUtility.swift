@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SRKUtility: NSObject {
+@objc public class SRKUtility: NSObject {
 	
-	class func showErrorMessage(title:String, message:String, viewController:UIViewController) {
+	public class func showErrorMessage(title:String, message:String, viewController:UIViewController) {
 		let ac = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
 		ac.addAction(UIAlertAction(title: LOCALIZE("Okay"), style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction) -> Void in
 			ac.dismissViewControllerAnimated(true, completion: nil)
@@ -18,23 +18,23 @@ class SRKUtility: NSObject {
 		viewController.presentViewController(ac, animated: true, completion: nil)
 	}
 	
-	class var isRunningSimulator: Bool {
+	public class var isRunningSimulator: Bool {
 		get {
 			return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
 		}
 	}
 	
-	class func base64_string_from_data(data:NSData) -> String {
+	public class func base64_string_from_data(data:NSData) -> String {
 		let base64EncodedString = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
 		return base64EncodedString
 	}
 	
-	class func base64_data_from_string(string:String) -> NSData {
+	public class func base64_data_from_string(string:String) -> NSData {
 		let data = NSData(base64EncodedString: string, options: NSDataBase64DecodingOptions(rawValue: 0))!
 		return data
 	}
 	
-	class func invokeRequestForJSONResponseDictionaryData(request:NSMutableURLRequest, Handler:(NSDictionary?, NSString?) -> Void) -> NSURLSessionDataTask {
+	public class func invokeRequestForJSONResponseDictionaryData(request:NSMutableURLRequest, Handler:(NSDictionary?, NSString?) -> Void) -> NSURLSessionDataTask {
 		request.timeoutInterval = 20
 		let task =  NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
 			do {
@@ -60,7 +60,7 @@ class SRKUtility: NSObject {
 		return task
 	}
 	
-	class func invokeRequestForJSON(request:NSMutableURLRequest, Handler:(AnyObject?, NSString?) -> Void) -> NSURLSessionDataTask {
+	public class func invokeRequestForJSON(request:NSMutableURLRequest, Handler:(AnyObject?, NSString?) -> Void) -> NSURLSessionDataTask {
 		request.timeoutInterval = 20
 		let task =  NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
 			do {
@@ -79,7 +79,7 @@ class SRKUtility: NSObject {
 		return task
 	}
 
-	class func invokeRequestForData(request:NSMutableURLRequest, Handler:(NSData?, NSString?) -> Void) -> NSURLSessionDataTask {
+	public class func invokeRequestForData(request:NSMutableURLRequest, Handler:(NSData?, NSString?) -> Void) -> NSURLSessionDataTask {
 		request.timeoutInterval = 20
 		let task =  NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
 			
