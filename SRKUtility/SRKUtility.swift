@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 @objc public class SRKUtility: NSObject {
 	
