@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'2.0.7'
+	s.version		=	'2.0.8'
 	s.name			=	'SRKUtility'
     s.summary       =   'A pod which helps you to easily save values to NSUserDefaults, display MBProgressHUD and check Network Reachability.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
