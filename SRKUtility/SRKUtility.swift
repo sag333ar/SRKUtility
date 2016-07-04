@@ -86,4 +86,41 @@ import KSReachability
 		let data = NSData(base64EncodedString: string, options: NSDataBase64DecodingOptions(rawValue: 0))!
 		return data
 	}
+	
+	public class func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
+		let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
+		label.numberOfLines = 0
+		label.lineBreakMode = NSLineBreakMode.ByWordWrapping
+		label.font = font
+		label.text = text
+		
+		label.sizeToFit()
+		return label.frame.height
+	}
+	
+	public class func registerDefaultsFromSettingsBundle() {
+		let settingbundlepath = NSBundle.mainBundle().pathForResource("Settings", ofType: "bundle")
+		let dictionary = NSDictionary(contentsOfFile: settingbundlepath!.stringByAppendingString("/Root.plist"))
+		let array = dictionary!.objectForKey("PreferenceSpecifiers") as! NSArray
+		
+		for dictinaryOfPreference in array {
+			if let d = dictinaryOfPreference as? NSDictionary {
+				let key = d.valueForKey("Key") as? String
+				if key != nil {
+					NSUserDefaults.standardUserDefaults().setObject(d.valueForKey("DefaultValue"), forKey: key!)
+					NSUserDefaults.standardUserDefaults().synchronize()
+				}
+			}
+		}
+	}
+	
+	public class func colorWithString(string:String) -> UIColor {
+		let redString = string.componentsSeparatedByString(",")[0]
+		let greenString = string.componentsSeparatedByString(",")[1]
+		let blueString = string.componentsSeparatedByString(",")[2]
+		let red = (redString as NSString).floatValue
+		let green = (greenString as NSString).floatValue
+		let blue = (blueString as NSString).floatValue
+		return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+	}
 }
