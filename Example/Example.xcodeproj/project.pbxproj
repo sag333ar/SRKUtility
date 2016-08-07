@@ -95,12 +95,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B98B4AC1C31781A00582F7B /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				E0AD3B3635DEF97E183B8A9A /* Check Pods Manifest.lock */,
+				E0AD3B3635DEF97E183B8A9A /* 📦 Check Pods Manifest.lock */,
 				1B98B4961C31781A00582F7B /* Sources */,
 				1B98B4971C31781A00582F7B /* Frameworks */,
 				1B98B4981C31781A00582F7B /* Resources */,
-				0D99312EE377ED5CD7462C26 /* Embed Pods Frameworks */,
-				D77400513D64A3450CF51693 /* Copy Pods Resources */,
+				0D99312EE377ED5CD7462C26 /* 📦 Embed Pods Frameworks */,
+				D77400513D64A3450CF51693 /* 📦 Copy Pods Resources */,
+				4252A1CE2F644177D0B03518 /* Tailor */,
 			);
 			buildRules = (
 			);
@@ -158,14 +159,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D99312EE377ED5CD7462C26 /* Embed Pods Frameworks */ = {
+		0D99312EE377ED5CD7462C26 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,14 +174,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D77400513D64A3450CF51693 /* Copy Pods Resources */ = {
+		4252A1CE2F644177D0B03518 /* Tailor */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = Tailor;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if hash tailor 2>/dev/null; then\n  tailor\nelse\n  echo \"warning: Please install Tailor from https://tailor.sh\"\nfi";
+		};
+		D77400513D64A3450CF51693 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,14 +203,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0AD3B3635DEF97E183B8A9A /* Check Pods Manifest.lock */ = {
+		E0AD3B3635DEF97E183B8A9A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
