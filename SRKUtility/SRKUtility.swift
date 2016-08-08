@@ -11,7 +11,7 @@ import Foundation
 import PKHUD
 import ReachabilitySwift
 
-@objc public class Utility: NSObject {
+@objc public class SRKUtility: NSObject {
 	
 	public class func isReachableToNetwork() -> Reachability.NetworkStatus {
 		var reachability: Reachability?
