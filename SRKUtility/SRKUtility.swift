@@ -50,7 +50,7 @@ import ReachabilitySwift
 		NSOperationQueue.mainQueue().addOperationWithBlock {
 			self.progressHUD = MBProgressHUD(view: from.view)
 			from.view.addSubview(self.progressHUD!)
-			self.progressHUD?.label?.text = title
+			self.progressHUD?.label.text = title
 			self.progressHUD?.detailsLabel.text = subtitle
 			if let font = titleFont {
 				self.progressHUD?.label.font = font
