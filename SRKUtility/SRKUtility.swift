@@ -50,23 +50,23 @@ import ReachabilitySwift
 		NSOperationQueue.mainQueue().addOperationWithBlock {
 			self.progressHUD = MBProgressHUD(view: from.view)
 			from.view.addSubview(self.progressHUD!)
-			self.progressHUD?.labelText = title
-			self.progressHUD?.detailsLabelText = subtitle
+			self.progressHUD?.label?.text = title
+			self.progressHUD?.detailsLabel?.text = subtitle
 			if let font = titleFont {
-				self.progressHUD?.labelFont = font
+				self.progressHUD?.label?.font = font
 			}
 			if let font = subtitleFont {
 				self.progressHUD?.detailsLabelFont = font
 			}
 			self.progressHUD?.removeFromSuperViewOnHide = true
-			self.progressHUD?.show(false)
+			self.progressHUD?.showAnimated(false)
 		}
 	}
 
 	public class func hideProgressHUD() {
 		if let hud = self.progressHUD {
 			if let _ = hud.superview {
-				hud.hide(false)
+				hud.hideAnimated(false)
 			}
 			self.progressHUD = nil
 		}
