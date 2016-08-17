@@ -51,12 +51,12 @@ import ReachabilitySwift
 			self.progressHUD = MBProgressHUD(view: from.view)
 			from.view.addSubview(self.progressHUD!)
 			self.progressHUD?.label?.text = title
-			self.progressHUD?.detailsLabel?.text = subtitle
+			self.progressHUD?.detailsLabel.text = subtitle
 			if let font = titleFont {
-				self.progressHUD?.label?.font = font
+				self.progressHUD?.label.font = font
 			}
 			if let font = subtitleFont {
-				self.progressHUD?.detailsLabelFont = font
+				self.progressHUD?.detailsLabel.font = font
 			}
 			self.progressHUD?.removeFromSuperViewOnHide = true
 			self.progressHUD?.showAnimated(false)
