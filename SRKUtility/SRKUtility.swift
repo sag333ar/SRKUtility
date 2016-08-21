@@ -1,139 +1,169 @@
 //
-//  Utility.swift
-//  sagarrkothari
+//  SRKUtility.swift
+//  IGNOU
 //
-//  Created by Sagar on 12/2/15.
-//  Copyright © 2015 sagarrkothari. All rights reserved.
+//  Created by sagar kothari on 21/08/16.
+//  Copyright © 2016 sagar kothari. All rights reserved.
 //
 
 import UIKit
-import Foundation
-import PKHUD
-import MBProgressHUD
-import ReachabilitySwift
 
 @objc public class SRKUtility: NSObject {
 
-	static var progressHUD: MBProgressHUD? = nil
+}
 
-	public class func isReachableToNetwork() -> Reachability.NetworkStatus {
-		var reachability: Reachability?
-		do {
-			reachability = try Reachability.reachabilityForInternetConnection()
-			reachability?.currentReachabilityStatus
-		} catch {
-			return Reachability.NetworkStatus.NotReachable
-		}
-		return Reachability.NetworkStatus.NotReachable
-	}
+// MARK: - SRKUtility Extension for Reachability
 
-	public class func saveValueForKey(value: AnyObject, forKey: String) -> Bool {
-		NSUserDefaults.standardUserDefaults().setObject(value, forKey: forKey)
-		return NSUserDefaults.standardUserDefaults().synchronize()
-	}
+extension SRKUtility {
 
-	public class func getValueForKey(forKey: String) -> AnyObject? {
-		return NSUserDefaults.standardUserDefaults().valueForKey(forKey)
-	}
-	
-	public class func deleteValueForKey(forKey: String) -> Bool {
-		NSUserDefaults.standardUserDefaults().removeObjectForKey(forKey)
-		return NSUserDefaults.standardUserDefaults().synchronize()
-	}
+    private static var reachability: KSReachability = KSReachability.toInternet()
+    public static var isReachableToNetwork: Bool {
+        get {
+            return self.reachability.reachable
+        }
+    }
+}
 
-	public class func showHUD() {
-		HUD.hide()
-		HUD.show(.Progress)
-	}
+// MARK: - SRKUtility Extension for MBProgress HUD - hide and Show
 
-	public class func showProgressHUD(viewController from: UIViewController, title: String, subtitle: String, titleFont: UIFont?, subtitleFont: UIFont?) {
-		NSOperationQueue.mainQueue().addOperationWithBlock {
-			self.progressHUD = MBProgressHUD(view: from.view)
-			from.view.addSubview(self.progressHUD!)
-			self.progressHUD?.label.text = title
-			self.progressHUD?.detailsLabel.text = subtitle
-			if let font = titleFont {
-				self.progressHUD?.label.font = font
-			}
-			if let font = subtitleFont {
-				self.progressHUD?.detailsLabel.font = font
-			}
-			self.progressHUD?.removeFromSuperViewOnHide = true
-			self.progressHUD?.showAnimated(false)
-		}
-	}
+extension SRKUtility {
 
-	public class func hideProgressHUD() {
-		if let hud = self.progressHUD {
-			if let _ = hud.superview {
-				hud.hideAnimated(false)
-			}
-			self.progressHUD = nil
-		}
-	}
+    private static var progressHUD: MBProgressHUD? = nil
+    public class func showProgressHUD(viewController from: UIViewController,
+                                      title: String,
+                                      subtitle: String,
+                                      titleFont: UIFont?,
+                                      subtitleFont: UIFont?) {
+        OperationQueue.main.addOperation {
+            self.progressHUD = MBProgressHUD(view: from.view)
+            from.view.addSubview(self.progressHUD!)
+            self.progressHUD?.label.text = title
+            self.progressHUD?.detailsLabel.text = subtitle
+            if let font = titleFont {
+                self.progressHUD?.label.font = font
+            }
+            if let font = subtitleFont {
+                self.progressHUD?.detailsLabel.font = font
+            }
+            self.progressHUD?.removeFromSuperViewOnHide = true
+            self.progressHUD?.show(animated: false)
+        }
+    }
 
-	public class func hideHUD() {
-		HUD.hide()
-	}
+    public class func hideProgressHUD() {
+        OperationQueue.main.addOperation {
+            if let hud = self.progressHUD {
+                if let _ = hud.superview {
+                    hud.hide(animated: false)
+                }
+                self.progressHUD = nil
+            }
+        }
+    }
 
-	public class func showErrorMessage(title: String, message: String, viewController: UIViewController) {
-		let ac = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+}
 
-		ac.addAction(UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"), style: UIAlertActionStyle.Default, handler: { (action: UIAlertAction) -> Void in
-			ac.dismissViewControllerAnimated(true, completion: nil)
-		}))
-		viewController.presentViewController(ac, animated: true, completion: nil)
-	}
+// MARK: - SRKUtility Extension Some Useful utilities
 
-	public class var isRunningSimulator: Bool {
-		get {
-			return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
-		}
-	}
+extension SRKUtility {
 
-	public class func base64StringFromData(data: NSData) -> String {
-		let base64EncodedString = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-		return base64EncodedString
-	}
+    public class func showErrorMessage(title: String,
+                                       message: String,
+                                       viewController: UIViewController) {
+        let ac = UIAlertController(title: title,
+                                   message: message,
+                                   preferredStyle: UIAlertControllerStyle.alert)
 
-	public class func base64DataFromString(string: String) -> NSData {
-		let data = NSData(base64EncodedString: string, options: NSDataBase64DecodingOptions(rawValue: 0))!
-		return data
-	}
+        let handler = { (action: UIAlertAction) -> Void in
+            ac.dismiss(animated: true, completion: nil)
+        }
+        let acAction = UIAlertAction(title: NSLocalizedString("Okay", comment: "Okay"),
+                                     style: UIAlertActionStyle.default,
+                                     handler: handler)
+        ac.addAction(acAction)
+        viewController.present(ac, animated: true, completion: nil)
+    }
 
-	public class func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
-		let label: UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.max))
-		label.numberOfLines = 0
-		label.lineBreakMode = NSLineBreakMode.ByWordWrapping
-		label.font = font
-		label.text = text
-		label.sizeToFit()
-		return label.frame.height
-	}
+    public class var isRunningSimulator: Bool {
+        get {
+            return TARGET_OS_SIMULATOR != 0 // Use this line in Xcode 7 or newer
+        }
+    }
 
-	public class func registerDefaultsFromSettingsBundle() {
-		let settingbundlepath = NSBundle.mainBundle().pathForResource("Settings", ofType: "bundle")
-		let dictionary = NSDictionary(contentsOfFile: settingbundlepath!.stringByAppendingString("/Root.plist"))
-		let array = (dictionary?.objectForKey("PreferenceSpecifiers") as? NSArray)!
-		for dictinaryOfPreference in array {
-			if let d = dictinaryOfPreference as? NSDictionary {
-				let key = d.valueForKey("Key") as? String
-				if key != nil {
-					NSUserDefaults.standardUserDefaults().setObject(d.valueForKey("DefaultValue"), forKey: key!)
-					NSUserDefaults.standardUserDefaults().synchronize()
-				}
-			}
-		}
-	}
+    public class func heightForView(text: String, font: UIFont, width: CGFloat) -> CGFloat {
+        let label: UILabel = UILabel(frame: CGRect(x: 0,
+                                                   y: 0,
+                                                   width: width,
+                                                   height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = font
+        label.text = text
+        label.sizeToFit()
+        return label.frame.height
+    }
 
-	public class func colorWithString(string: String) -> UIColor {
-		let redString = string.componentsSeparatedByString(",")[0]
-		let greenString = string.componentsSeparatedByString(",")[1]
-		let blueString = string.componentsSeparatedByString(",")[2]
-		let red = (redString as NSString).floatValue
-		let green = (greenString as NSString).floatValue
-		let blue = (blueString as NSString).floatValue
-		return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
-	}
+    public class func colorWithString(string: String) -> UIColor {
+        let redString = string.components(separatedBy: ",")[0]
+        let greenString = string.components(separatedBy: ",")[1]
+        let blueString = string.components(separatedBy: ",")[2]
+        let red = (redString as NSString).floatValue
+        let green = (greenString as NSString).floatValue
+        let blue = (blueString as NSString).floatValue
+        return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
+    }
+
+}
+
+// MARK: - SRKUtility Extension for UserDefaults
+
+extension SRKUtility {
+
+    public class func saveValueForKey(value: AnyObject, forKey: String) -> Bool {
+        UserDefaults.standard.set(value, forKey: forKey)
+        return UserDefaults.standard.synchronize()
+    }
+
+    public class func getValueForKey(forKey: String) -> AnyObject? {
+        return UserDefaults.standard.value(forKey: forKey)
+    }
+
+    public class func deleteValueForKey(forKey: String) -> Bool {
+        UserDefaults.standard.removeObject(forKey: forKey)
+        return UserDefaults.standard.synchronize()
+    }
+
+    public class func registerDefaultsFromSettingsBundle() {
+        let settingbundlepath = Bundle.main.path(forResource: "Settings", ofType: "bundle")
+        let dictionary = NSDictionary(contentsOfFile: settingbundlepath!.appending("/Root.plist"))
+        let array = (dictionary?.object(forKey: "PreferenceSpecifiers") as? NSArray)!
+        for dictinaryOfPreference in array {
+            if let d = dictinaryOfPreference as? NSDictionary {
+                let key = d.value(forKey: "Key") as? String
+                if key != nil {
+                    UserDefaults.standard.set(d.value(forKey: "DefaultValue"), forKey: key!)
+                    UserDefaults.standard.synchronize()
+                }
+            }
+        }
+    }
+
+}
+
+// MARK: - SRKUtility Extension for Base64
+
+extension SRKUtility {
+
+    public class func base64StringFromData(data: NSData) -> String {
+        let base64String = data.base64EncodedString(
+            options: NSData.Base64EncodingOptions(rawValue: 0))
+        return base64String
+    }
+
+    public class func base64DataFromString(string: String) -> NSData? {
+        let data = NSData(base64Encoded: string,
+                          options: NSData.Base64DecodingOptions(rawValue: 0))
+        return data
+    }
 
 }
