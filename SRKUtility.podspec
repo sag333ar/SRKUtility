@@ -3,9 +3,9 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'4.0.2'
+	s.version		=	'5.0.1'
 	s.name			=	'SRKUtility'
-  	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability.'
+  	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
 	s.homepage		=	"http://sagarrkothari.com"
 	s.license		=	{ :type	=> 'MIT' }
@@ -17,6 +17,5 @@ Pod::Spec.new do |s|
   	s.source_files	=	'SRKUtility/*.{swift}'
  	s.dependency 'MBProgressHUD'
  	s.dependency 'KSReachability'
- 	s.dependency 'SwiftLocation'
 	s.frameworks 	= 'UIKit', 'Foundation'
 end

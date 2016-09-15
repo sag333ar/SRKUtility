@@ -1,0 +1,15 @@
+PODS:
+  - KSReachability (1.4.1)
+  - MBProgressHUD (1.0.0)
+
+DEPENDENCIES:
+  - KSReachability
+  - MBProgressHUD
+
+SPEC CHECKSUMS:
+  KSReachability: ddf4af6e6488c45c5c41c59e72d72d078062ee28
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+
+PODFILE CHECKSUM: 5d2bd70333f3ea17d0529d9b4092d0b130ad75d7
+
+COCOAPODS: 1.0.0

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SRKUtility
 
 class ViewController: UIViewController {
 
