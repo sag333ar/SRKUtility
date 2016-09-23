@@ -25,6 +25,7 @@ public struct SRKCamera {
 		SRKCamera.shared.cameraDevice = cameraDevice
 		SRKCamera.shared.canEditImage = canEditImage
 		SRKCamera.shared.handler = handler
+		SRKCamera.shared.hasAppeared = false
 		viewController.present(SRKCamera.shared, animated: false, completion: nil)
 	}
 }
@@ -35,6 +36,7 @@ class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate
 	var sourceType: UIImagePickerControllerSourceType = .photoLibrary
     var cameraDevice: UIImagePickerControllerCameraDevice = .front
 	var handler: ((SRKCameraResponse) -> Void)?
+	var hasAppeared: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,10 @@ class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate
 
     override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		self.presentCamera()
+		if self.hasAppeared == false {
+			self.hasAppeared = true
+			self.presentCamera()
+		}
     }
 
 	func presentCamera() {
