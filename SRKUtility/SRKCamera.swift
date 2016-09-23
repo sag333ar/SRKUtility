@@ -14,22 +14,33 @@ public enum SRKCameraResponse {
 }
 
 public struct SRKCamera {
-	public static let shared = SRKCameraViewController()
+	private static let shared = SRKCameraViewController()
+	public static func openCameraController(viewController: UIViewController,
+											sourceType: UIImagePickerControllerSourceType = .photoLibrary,
+	                                        cameraDevice: UIImagePickerControllerCameraDevice = .front,
+	                                        canEditImage: Bool = true,
+	                                        handler: @escaping ((SRKCameraResponse) -> Void)
+	                                        ) {
+		SRKCamera.shared.sourceType = sourceType
+		SRKCamera.shared.cameraDevice = cameraDevice
+		SRKCamera.shared.canEditImage = canEditImage
+		SRKCamera.shared.handler = handler
+		viewController.present(SRKCamera.shared, animated: false, completion: nil)
+	}
 }
 
-open class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    open var viewDidAppearMoreThanOnce = false
-    open var canEditImage = true
-	open var sourceType: UIImagePickerControllerSourceType = .photoLibrary
-    open var cameraDevice: UIImagePickerControllerCameraDevice = .front
-	open var handler: ((SRKCameraResponse) -> Void)?
+    var canEditImage = true
+	var sourceType: UIImagePickerControllerSourceType = .photoLibrary
+    var cameraDevice: UIImagePickerControllerCameraDevice = .front
+	var handler: ((SRKCameraResponse) -> Void)?
 
-    override open func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override open func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		self.presentCamera()
     }
@@ -54,9 +65,7 @@ open class SRKCameraViewController: UIViewController, UIImagePickerControllerDel
 				imagePicker.cameraDevice = cameraDevice
 			}
 			imagePicker.allowsEditing = canEditImage
-			self.present(imagePicker,
-			             animated: false,
-			             completion: nil)
+			self.present(imagePicker, animated: false, completion: nil)
 		} else {
 			self.handler?(SRKCameraResponse.cancelled)
 			self.dismiss(animated: false, completion: nil)
@@ -65,7 +74,7 @@ open class SRKCameraViewController: UIViewController, UIImagePickerControllerDel
     }
 
 
-    open func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
         let selectedPhoto: UIImage
         if canEditImage {
@@ -75,11 +84,15 @@ open class SRKCameraViewController: UIViewController, UIImagePickerControllerDel
             selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         }
 		self.handler?(SRKCameraResponse.success(selectedPhoto))
-        self.dismiss(animated: false, completion: nil)
+		picker.dismiss(animated: false) {
+			self.dismiss(animated: false, completion: nil)
+		}
     }
 	
-	public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		self.handler?(SRKCameraResponse.cancelled)
-		self.dismiss(animated: false, completion: nil)
+		picker.dismiss(animated: false) {
+			self.dismiss(animated: false, completion: nil)
+		}
 	}
 }
