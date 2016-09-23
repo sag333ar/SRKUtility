@@ -1,8 +1,8 @@
 //
 //  SRKUtility.swift
-//  IGNOU
+//  Sagar R. Kothari
 //
-//  Created by sagar kothari on 21/08/16.
+//  Created by sagar kothari
 //  Copyright © 2016 sagar kothari. All rights reserved.
 //
 
