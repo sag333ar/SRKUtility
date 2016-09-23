@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import KSReachability
+import MBProgressHUD
 
 @objc public class SRKUtility: NSObject {
 
@@ -125,7 +127,7 @@ extension SRKUtility {
     }
 
     public class func getValueForKey(forKey: String) -> AnyObject? {
-        return UserDefaults.standard.value(forKey: forKey)
+        return UserDefaults.standard.value(forKey: forKey) as AnyObject?
     }
 
     public class func deleteValueForKey(forKey: String) -> Bool {

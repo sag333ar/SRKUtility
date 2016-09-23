@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SRKUtility
 
 public enum SRKCameraResponse {
 	case success(UIImage)
