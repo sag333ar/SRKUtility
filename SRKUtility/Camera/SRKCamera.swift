@@ -15,9 +15,9 @@ public enum SRKCameraResponse {
 }
 
 public struct SRKCamera {
-	private static let shared = SRKCameraViewController()
-	private static let sharedCrop = SRKCropCamera()
-	public static func openCameraController(viewController: UIViewController,
+	fileprivate static let shared = SRKCameraViewController()
+	fileprivate static let sharedCrop = SRKCropCamera()
+	public static func openCameraController(_ viewController: UIViewController,
 											sourceType: UIImagePickerControllerSourceType = .photoLibrary,
 	                                        cameraDevice: UIImagePickerControllerCameraDevice = .front,
 	                                        canEditImage: Bool = true,
@@ -30,7 +30,7 @@ public struct SRKCamera {
 		SRKCamera.shared.hasAppeared = false
 		viewController.present(SRKCamera.shared, animated: false, completion: nil)
 	}
-	public static func openCropCameraController(viewController: UIViewController,
+	public static func openCropCameraController(_ viewController: UIViewController,
 	                                            sourceType: UIImagePickerControllerSourceType = .photoLibrary,
 	                                            cameraDevice: UIImagePickerControllerCameraDevice = .front,
 	                                            cropSize: CGSize = CGSize(width: 400, height: 400),

@@ -35,7 +35,7 @@ public enum ImageResponse {
 @objc open class SRKRequestManager: NSObject {
 	
 	// MARK:- Query String generator
-	open class func generateQueryString(dictionary: [String: String]) -> String {
+	open class func generateQueryString(_ dictionary: [String: String]) -> String {
 		var str: String = ""
 		for (key, value) in dictionary {
 			str = str + "&" + key + "=" + value
@@ -43,11 +43,11 @@ public enum ImageResponse {
 		return "?" + str.trimmingCharacters(in: CharacterSet(charactersIn: "&"))
 	}
 	
-	open class func addURLEncoding(string: String) -> String {
+	open class func addURLEncoding(_ string: String) -> String {
 		return string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
 	}
 	
-	open class func removeURLEncoding(string: String) -> String {
+	open class func removeURLEncoding(_ string: String) -> String {
 		return string.removingPercentEncoding!
 	}
 	
@@ -76,7 +76,7 @@ public enum ImageResponse {
 	*/
 	
 	// MARK:- NSMutableURLRequest generator
-	open class func generateRequest(urlString: String,
+	open class func generateRequest(_ urlString: String,
 	                                  dictionaryOfHeaders: [String: String]?,
 	                                  postData: Data?,
 	                                  requestType: RequestType,
@@ -106,7 +106,7 @@ public enum ImageResponse {
 		return mRqst
 	}
 	
-	open class func invokeRequestForData(request: URLRequest,
+	open class func invokeRequestForData(_ request: URLRequest,
 	                                       handler: @escaping (Response) -> Void) -> URLSessionDataTask {
 		let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
 			if let r = error {
@@ -124,7 +124,7 @@ public enum ImageResponse {
 		return task
 	}
 	
-	open class func parseJSONData(data: Data, urlresponse: URLResponse?) -> JSONResponse {
+	open class func parseJSONData(_ data: Data, urlresponse: URLResponse?) -> JSONResponse {
 		do {
 			let obj = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
 			if let dictionary = obj as? [String: AnyObject] {
@@ -145,11 +145,11 @@ public enum ImageResponse {
 		}
 	}
 	
-	open class func invokeRequestForJSON(request: URLRequest, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
-		let task = self.invokeRequestForData(request: request) { (response: Response) in
+	open class func invokeRequestForJSON(_ request: URLRequest, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
+		let task = self.invokeRequestForData(request) { (response: Response) in
 			switch (response) {
 			case let .result(data, urlresponse):
-				handler(self.parseJSONData(data: data, urlresponse: urlresponse))
+				handler(self.parseJSONData(data, urlresponse: urlresponse))
 			case let .error(urlresponse, error):
 				handler(JSONResponse.error(urlresponse, error))
 			}
@@ -157,7 +157,7 @@ public enum ImageResponse {
 		return task
 	}
 	
-	open class func uploadPhoto(request:URLRequest, image:UIImage, Handler:@escaping (Response) -> Void) -> URLSessionDataTask {
+	open class func uploadPhoto(_ request:URLRequest, image:UIImage, Handler:@escaping (Response) -> Void) -> URLSessionDataTask {
 		var rqst = request
 		let imageData = UIImagePNGRepresentation(image)
 		rqst.httpMethod = "POST"
@@ -189,11 +189,11 @@ public enum ImageResponse {
 		// set HTTPBody to Request
 		rqst.httpBody = dataToUpload as Data
 		
-		return self.invokeRequestForData(request: rqst, handler: Handler)
+		return self.invokeRequestForData(rqst, handler: Handler)
 	}
 
-	open class func invokeRequestToDownloadImage(stringURLOfImage: String, handler: @escaping (ImageResponse) -> Void) -> URLSessionDataTask? {
-		var anotherStr = self.removeURLEncoding(string: stringURLOfImage).replacingOccurrences(of: ":", with: "_")
+	open class func invokeRequestToDownloadImage(_ stringURLOfImage: String, handler: @escaping (ImageResponse) -> Void) -> URLSessionDataTask? {
+		var anotherStr = self.removeURLEncoding(stringURLOfImage).replacingOccurrences(of: ":", with: "_")
 		anotherStr = anotherStr.replacingOccurrences(of: "/", with: "_")
 		anotherStr = anotherStr.replacingOccurrences(of: "\\", with: "_")
 		anotherStr = anotherStr.replacingOccurrences(of: "%", with: "_")
@@ -210,8 +210,8 @@ public enum ImageResponse {
 			}
 		}
 		
-		let req = self.generateRequest(urlString: stringURLOfImage, dictionaryOfHeaders: nil, postData: nil, requestType: .Get, timeOut: 60)
-		let task = self.invokeRequestForData(request: req) { (response: Response) in
+		let req = self.generateRequest(stringURLOfImage, dictionaryOfHeaders: nil, postData: nil, requestType: .Get, timeOut: 60)
+		let task = self.invokeRequestForData(req) { (response: Response) in
 			switch (response) {
 			case let .result(data, _):
 				if let img = UIImage(data: data) {
