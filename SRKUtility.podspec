@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.0.12'
+	s.version		=	'5.0.13'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -56,5 +56,4 @@ Pod::Spec.new do |s|
 	s.dependency	 		'MBProgressHUD'
 	s.dependency 			'KSReachability'
 	s.dependency 			'ADALiOS', '~> 1.2'
-	s.dependency			'RNCryptor', '~> 5.0.0'
 end

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import RNCryptor
+import RNCryptor
 
 public enum RequestType: String {
 	case Get = "GET"
@@ -51,7 +51,7 @@ public enum ImageResponse {
 		return string.removingPercentEncoding!
 	}
 	
-	/*
+	
 	// MARK:- Encryption and decryption
 	
 	open class func decryptData(_ data: Data, password: String) throws -> Data {
@@ -59,7 +59,7 @@ public enum ImageResponse {
 			let encryptedText = String(data: data, encoding: String.Encoding.utf8)
 			let encryptedData = Data(base64Encoded: encryptedText!,
 										options: NSData.Base64DecodingOptions(rawValue: 0))
-			let plainText = try RNCryptor.decryptData(encryptedData!, password: password)
+			let plainText = try RNCryptor.decrypt(data: encryptedData!, withPassword: password)
 			return plainText
 		} catch {
 			throw error
@@ -67,13 +67,13 @@ public enum ImageResponse {
 	}
 	
 	open class func encryptData(_ data: Data, password: String) -> Data {
-		let encryptedData = RNCryptor.encryptData(data, password: password)
+		let encryptedData = RNCryptor.encrypt(data: data, withPassword: password)
 		let base64EncodingOption = NSData.Base64EncodingOptions(rawValue:0)
-		let encryptedString = encryptedData.base64EncodedStringWithOptions(base64EncodingOption)
-		let base64Data = encryptedString.dataUsingEncoding(String.Encoding.utf8)
+		let encryptedString = encryptedData.base64EncodedString(options: base64EncodingOption)
+		let base64Data = encryptedString.data(using: String.Encoding.utf8)
 		return base64Data!
 	}
-	*/
+	
 	
 	// MARK:- NSMutableURLRequest generator
 	open class func generateRequest(_ urlString: String,
@@ -143,6 +143,30 @@ public enum ImageResponse {
 			                    userInfo: ["Error occured in JSON Parsing": NSLocalizedDescriptionKey])
 			return JSONResponse.error(urlresponse, erroR)
 		}
+	}
+	
+	public class func invokeRequestForJSON(request: NSMutableURLRequest, password: String?, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
+		let task = self.invokeRequestForData(request as URLRequest) { (response: Response) in
+			switch (response) {
+			case let .result(data, urlresponse):
+				if let pswd = password {
+					do {
+						let decryptedData = try self.decryptData(data, password: pswd)
+						handler(self.parseJSONData(decryptedData, urlresponse: urlresponse))
+					} catch {
+						let erroR = NSError(domain: "SRKRequestManager",
+						                    code: 502,
+						                    userInfo: ["Error occured in Decrypting Data": NSLocalizedDescriptionKey])
+						handler(JSONResponse.error(urlresponse, erroR))
+					}
+				} else {
+					handler(self.parseJSONData(data, urlresponse: urlresponse))
+				}
+			case let .error(urlresponse, error):
+				handler(JSONResponse.error(urlresponse, error))
+			}
+		}
+		return task
 	}
 	
 	open class func invokeRequestForJSON(_ request: URLRequest, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
