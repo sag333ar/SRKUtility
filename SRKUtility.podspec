@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.0.8'
+	s.version		=	'5.0.9'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -17,24 +17,39 @@ Pod::Spec.new do |s|
   						}
   	s.social_media_url = 'https://twitter.com/sag333ar'
   	s.documentation_url = 'https://github.com/sag333ar/SRKUtility/wiki'
+
   	s.subspec 'Camera' do |sub|
-  		sub.preserve_paths =  'SRKClasses', 'SRKImages'
-  		sub.resources 	= 	'SRKUtility/SRKImages/*.png'
-  		sub.source_files	=	'SRKUtility/SRKClasses/*.{h,m}', 'SRKUtility/SRKCamera.swift'
+  		sub.preserve_paths	= 	'SRKClasses', 'SRKImages'
+  		sub.resources 		= 	'SRKUtility/Camera/SRKImages/*.png'
+  		sub.source_files	=	'SRKUtility/Camera/SRKClasses/*.{h,m}', 'SRKUtility/Camera/SRKCamera.swift'
   	end
 
   	s.subspec 'Request' do |sub|
-  		sub.source_files	=	'SRKUtility/SRKRequestManager.swift'
+  		sub.source_files	=	'SRKUtility/RequestManager/SRKRequestManager.swift'
   	end
 
   	s.subspec 'DeviceType' do |sub|
-  		sub.source_files	=	'SRKUtility/SRKDeviceType.swift'
+  		sub.source_files	=	'SRKUtility/Device/SRKDeviceType.swift'
   	end
 	
 	s.subspec 'Utilities' do |sub|
-  		sub.source_files	=	'SRKUtility/SRKUtility.swift'
+  		sub.source_files	=	'SRKUtility/Utility.swift'
   		sub.dependency	 		'MBProgressHUD'
  		sub.dependency 			'KSReachability'
+  	end
+
+  	s.subspec 'Controls' do |sub|
+  		sub.source_files		=	'SRKUtility/Controls/*.{swift}'
+  		sub.resource_bundles	=	{
+  			'Controls' => [
+  				'SRKUtility/Controls/*.{xib}'
+  			]
+  		}
+  	end
+
+  	s.subspec 'O365' do |sub|
+  		sub.preserve_paths		= 	'Helpers', 'Model'
+  		sub.source_files 		= 	'SRKUtility/O365/Helpers/*.{h,m}', 'SRKUtility/O365/Model/*.{h,m}'
   	end
 
 	s.frameworks 	= 	'UIKit', 'Foundation'
