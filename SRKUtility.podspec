@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
   						}
 	s.preserve_paths = 'SRKClasses', 'SRKImages'
 	s.resources 	= 	'SRKUtility/SRKImages/*.png'
-  	s.source_files	=	'SRKUtility/*.{swift}'
-  	s.source_files	=	'SRKUtility/SRKClasses/*.{h,m}'
+  	s.source_files	=	'SRKUtility/SRKClasses/*.{h,m,swift}'
  	s.dependency 		'MBProgressHUD'
  	s.dependency 		'KSReachability'
 	s.frameworks 	= 	'UIKit', 'Foundation'
