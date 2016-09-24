@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import SRKImagePicker
 
 public enum SRKCameraResponse {
 	case success(UIImage)
@@ -15,6 +16,7 @@ public enum SRKCameraResponse {
 
 public struct SRKCamera {
 	private static let shared = SRKCameraViewController()
+	private static let sharedCrop = SRKCropCamera()
 	public static func openCameraController(viewController: UIViewController,
 											sourceType: UIImagePickerControllerSourceType = .photoLibrary,
 	                                        cameraDevice: UIImagePickerControllerCameraDevice = .front,
@@ -28,9 +30,43 @@ public struct SRKCamera {
 		SRKCamera.shared.hasAppeared = false
 		viewController.present(SRKCamera.shared, animated: false, completion: nil)
 	}
+	public static func openCropCameraController(viewController: UIViewController,
+	                                            sourceType: UIImagePickerControllerSourceType = .photoLibrary,
+	                                            cameraDevice: UIImagePickerControllerCameraDevice = .front,
+	                                            cropSize: CGSize = CGSize(width: 400, height: 400),
+	                                            handler: @escaping ((SRKCameraResponse) -> Void)
+												) {
+		SRKCamera.sharedCrop.cropCam.cropSize = cropSize
+		SRKCamera.sharedCrop.handler = handler
+		if SRKUtility.isRunningSimulator {
+			if sourceType == .camera {
+				SRKCamera.sharedCrop.cropCam.imagePickerController.sourceType = .photoLibrary
+			} else {
+				SRKCamera.sharedCrop.cropCam.imagePickerController.sourceType = sourceType
+			}
+		} else {
+			SRKCamera.sharedCrop.cropCam.imagePickerController.sourceType = sourceType
+			SRKCamera.sharedCrop.cropCam.imagePickerController.cameraDevice = cameraDevice
+		}
+		SRKCamera.sharedCrop.cropCam.delegate = SRKCamera.sharedCrop
+		viewController.present(SRKCamera.sharedCrop.cropCam.imagePickerController, animated: false, completion: nil)
+	}
 }
 
-class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+@objc class SRKCropCamera: NSObject, SRKImagePickerDelegate {
+	var cropCam = SRKImagePicker(sourceType: UIImagePickerControllerSourceType.photoLibrary)!
+	var handler: ((SRKCameraResponse) -> Void)?
+	func imagePickerDidCancel(_ imagePicker: SRKImagePicker!) {
+		self.cropCam.imagePickerController.dismiss(animated: false)
+		self.handler?(SRKCameraResponse.cancelled)
+	}
+	func imagePicker(_ imagePicker: SRKImagePicker!, pickedImage image: UIImage!) {
+		self.cropCam.imagePickerController.dismiss(animated: false)
+		self.handler?(SRKCameraResponse.success(image))
+	}
+}
+
+@objc class SRKCameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var canEditImage = true
 	var sourceType: UIImagePickerControllerSourceType = .photoLibrary
