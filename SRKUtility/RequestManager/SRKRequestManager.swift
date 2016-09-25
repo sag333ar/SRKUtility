@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RNCryptor
+//import RNCryptor
 
 public enum RequestType: String {
 	case Get = "GET"
@@ -51,7 +51,7 @@ public enum ImageResponse {
 		return string.removingPercentEncoding!
 	}
 	
-	
+	/*
 	// MARK:- Encryption and decryption
 	
 	open class func decryptData(_ data: Data, password: String) throws -> Data {
@@ -73,7 +73,7 @@ public enum ImageResponse {
 		let base64Data = encryptedString.data(using: String.Encoding.utf8)
 		return base64Data!
 	}
-	
+	*/
 	
 	// MARK:- NSMutableURLRequest generator
 	open class func generateRequest(_ urlString: String,
@@ -145,6 +145,7 @@ public enum ImageResponse {
 		}
 	}
 	
+	/*
 	public class func invokeRequestForJSON(request: NSMutableURLRequest, password: String?, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
 		let task = self.invokeRequestForData(request as URLRequest) { (response: Response) in
 			switch (response) {
@@ -168,6 +169,7 @@ public enum ImageResponse {
 		}
 		return task
 	}
+	*/
 	
 	open class func invokeRequestForJSON(_ request: URLRequest, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
 		let task = self.invokeRequestForData(request) { (response: Response) in
