@@ -32,6 +32,19 @@ public enum ImageResponse {
 	case error(Error)
 }
 
+public enum SRKError: Error {
+	case InvalidResponseReceived
+	case InvalidRequestReceived
+	case CustomMessage(String)
+	case Error(Error)
+}
+
+public enum SRKResponse {
+	case error(SRKError)
+	case successWithDictionary([String: AnyObject])
+	case successWithArray([[String: AnyObject]])
+}
+
 @objc open class SRKRequestManager: NSObject {
 	
 	// MARK:- Query String generator
@@ -170,6 +183,29 @@ public enum ImageResponse {
 		return task
 	}
 	*/
+	
+	open class func handleResponse(_ jsonResponse: JSONResponse) -> SRKResponse {
+		switch jsonResponse {
+		case let .array(array, _):
+			print("Invalid array received \(array)")
+			return SRKResponse.error(SRKError.InvalidResponseReceived)
+		case let .dictionary(dictionaryOfResponse, _):
+			if let success = dictionaryOfResponse["success"] as? Bool, success == true {
+				if let response = dictionaryOfResponse["response"] {
+					if let res = response as? [String: AnyObject] {
+						return SRKResponse.successWithDictionary(res)
+					}
+					if let res = response as? [[String: AnyObject]] {
+						return SRKResponse.successWithArray(res)
+					}
+				}
+				return SRKResponse.error(SRKError.InvalidResponseReceived)
+			}
+			return SRKResponse.error(SRKError.InvalidResponseReceived)
+		case let .error(_, error):
+			return SRKResponse.error(SRKError.Error(error))
+		}
+	}
 	
 	open class func invokeRequestForJSON(_ request: URLRequest, handler: @escaping (JSONResponse) -> Void) -> URLSessionDataTask {
 		let task = self.invokeRequestForData(request) { (response: Response) in
