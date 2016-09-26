@@ -34,6 +34,7 @@ public struct SRKCamera {
 	                                            sourceType: UIImagePickerControllerSourceType = .photoLibrary,
 	                                            cameraDevice: UIImagePickerControllerCameraDevice = .front,
 	                                            cropSize: CGSize = CGSize(width: 400, height: 400),
+	                                            allowResize: Bool = false,
 	                                            handler: @escaping ((SRKCameraResponse) -> Void)
 												) {
 		SRKCamera.sharedCrop.cropCam.cropSize = cropSize
@@ -48,6 +49,7 @@ public struct SRKCamera {
 			SRKCamera.sharedCrop.cropCam.imagePickerController.sourceType = sourceType
 			SRKCamera.sharedCrop.cropCam.imagePickerController.cameraDevice = cameraDevice
 		}
+		SRKCamera.sharedCrop.cropCam.resizeableCropArea = allowResize
 		SRKCamera.sharedCrop.cropCam.delegate = SRKCamera.sharedCrop
 		viewController.present(SRKCamera.sharedCrop.cropCam.imagePickerController, animated: false, completion: nil)
 	}
