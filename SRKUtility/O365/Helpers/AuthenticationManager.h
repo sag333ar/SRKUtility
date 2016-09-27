@@ -21,6 +21,8 @@
 - (void)acquireAuthTokenWithResourceId:(NSString *)resourceId
                      completionHandler:(void (^)(ADAuthenticationResult *result, NSError *error))completionBlock;
 
+- (void)clearCredentials;
+
 @end
 
 

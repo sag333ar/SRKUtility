@@ -8,6 +8,9 @@
 // ENTER: Set your application's clientId and redirect URI here. You get
 // these when you register your application in Azure AD.
 
+NSString * const Office365DidConnectNotification = @"Office365DidConnectNotification";
+NSString * const Office365DidDisconnectNotification = @"Office365DidDisconnectNotification";
+
 @interface AuthenticationManager ()
 
 @property (strong,    nonatomic) ADAuthenticationContext *authContext;
@@ -117,6 +120,33 @@ NSString *cl_clientId;
                                    }
                                }];
     
+}
+
+-(void)clearCredentials {
+	
+	id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+	ADAuthenticationError *error;
+	
+	// Clear the token cache.
+	if ([[cache allItemsWithError:&error] count] > 0)
+		[cache removeAllWithError:&error];
+	
+	// Remove all the cookies from this application's sandbox. ADAL will try to
+	// get to access tokens based on auth code in the cookie.
+	NSHTTPCookieStorage *cookieStore = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+	for (NSHTTPCookie *cookie in cookieStore.cookies) {
+		[cookieStore deleteCookie:cookie];
+	}
+	
+	// Clear user defaults in case you change target tenant.
+	NSDictionary *keys = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+	for (NSString *key in keys)
+	{
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
+	}
+	
+	//Notification for when app is disconnected from O365
+	[[NSNotificationCenter defaultCenter]postNotificationName:Office365DidDisconnectNotification object:nil];
 }
 
 @end
