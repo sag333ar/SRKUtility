@@ -31,7 +31,7 @@ import UIKit
 
 	open func showOptions() {
 		let podBundle = Bundle(for: self.classForCoder)
-		if let bundleURL = podBundle.url(forResource: "SRKControls", withExtension: "bundle") {
+		if let bundleURL = podBundle.url(forResource: "Controls", withExtension: "bundle") {
 			if let bundle = Bundle(url: bundleURL) {
 				self.objComboBoxVCtr = ComboBoxVCtr(nibName: "ComboBoxVCtr", bundle: bundle)
 				self.objComboBoxVCtr?.modalPresentationStyle = .popover
