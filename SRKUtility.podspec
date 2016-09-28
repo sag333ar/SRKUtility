@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.1.5'
+	s.version		=	'5.1.6'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -35,6 +35,14 @@ Pod::Spec.new do |s|
 	
 	s.subspec 'Utilities' do |sub|
 		sub.source_files	=	'SRKUtility/Utility/SRKUtility.swift'
+	end
+
+	s.subspec 'Strings' do |sub|
+		sub.source_files	=	'SRKUtility/Strings/StringHelper.swift'
+	end
+
+	s.subspec 'ImageView' do |sub|
+		sub.source_files	=	'SRKUtility/UIImageView/UIImageHelper.swift'
 	end
 
 	s.subspec 'Controls' do |sub|
