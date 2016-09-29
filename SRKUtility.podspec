@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
 		sub.source_files    =  	'SRKUtility/O365/Helpers/*.{h,m}', 'SRKUtility/O365/Model/*.{h,m}'
 	end
 
-	s.frameworks 	= 	'UIKit', 'Foundation'
+	s.frameworks 	= 	'UIKit', 'Foundation', 'AVFoundation'
 	s.requires_arc = true
 	s.dependency	 		'MBProgressHUD'
 	s.dependency 			'KSReachability'
