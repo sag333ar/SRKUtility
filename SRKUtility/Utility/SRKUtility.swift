@@ -9,6 +9,7 @@
 import UIKit
 import KSReachability
 import MBProgressHUD
+import AVFoundation
 
 @objc public class SRKUtility: NSObject {
 
@@ -114,6 +115,22 @@ extension SRKUtility {
         let blue = (blueString as NSString).floatValue
         return UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
     }
+
+	public class func playAudioFromFilePath(_ filePath: String) throws {
+		let fileURL = URL(fileURLWithPath: filePath)
+		do {
+			let player = try AVAudioPlayer(contentsOf: fileURL)
+			player.prepareToPlay()
+			player.play()
+		} catch {
+			throw error
+		}
+		/*
+		} else {
+			throw SRKError.CustomMessage("Invalid file path")
+		}
+		*/
+	}
 
 }
 
