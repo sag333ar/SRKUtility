@@ -144,7 +144,8 @@ NSString *cl_clientId;
 	{
 		[[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
 	}
-	
+	[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"LogInUser"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
 	//Notification for when app is disconnected from O365
 	[[NSNotificationCenter defaultCenter]postNotificationName:Office365DidDisconnectNotification object:nil];
 }
