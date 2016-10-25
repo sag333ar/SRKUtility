@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.1.9'
+	s.version		=	'5.1.10'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 	s.documentation_url = 'https://github.com/sag333ar/SRKUtility/wiki'
 
 	s.subspec 'Camera' do |sub|
-		sub.preserve_paths	= 	'SRKClasses', 'SRKImages'
+		# sub.preserve_paths	= 	'SRKClasses', 'SRKImages'
 		sub.resources 		= 	'SRKUtility/Camera/SRKImages/*.png'
 		sub.source_files	=	'SRKUtility/Camera/SRKClasses/*.{h,m}', 'SRKUtility/Camera/SRKCamera.swift'
 	end
