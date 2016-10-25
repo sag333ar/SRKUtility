@@ -39,7 +39,7 @@ public struct SRKCamera {
 												) {
 		SRKCamera.sharedCrop.cropCam.cropSize = cropSize
 		SRKCamera.sharedCrop.handler = handler
-		if SRKUtility.isRunningSimulator {
+		if TARGET_OS_SIMULATOR != 0 {
 			if sourceType == .camera {
 				SRKCamera.sharedCrop.cropCam.imagePickerController.sourceType = .photoLibrary
 			} else {
@@ -97,7 +97,7 @@ public struct SRKCamera {
 		if let _ = Bundle.main.infoDictionary?["NSPhotoLibraryUsageDescription"], let _ = Bundle.main.infoDictionary?["NSCameraUsageDescription"] {
 			let imagePicker = UIImagePickerController()
 			imagePicker.delegate = self
-			if SRKUtility.isRunningSimulator {
+			if TARGET_OS_SIMULATOR != 0 {
 				if self.sourceType == .camera {
 					imagePicker.sourceType = .photoLibrary
 				} else {

@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.1.10'
+	s.version		=	'5.1.11'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'O365' do |sub|
-		sub.preserve_paths  = 	'Helpers', 'Model'
+		# sub.preserve_paths  = 	'Helpers', 'Model'
 		sub.source_files    =  	'SRKUtility/O365/Helpers/*.{h,m}', 'SRKUtility/O365/Model/*.{h,m}'
 	end
 
