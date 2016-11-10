@@ -9,6 +9,7 @@ target 'Example' do
   
   pod 'KSReachability'
   pod 'MBProgressHUD'
+  pod 'SRKUtility', '5.1.12'
 
   # Pods for Example
 
