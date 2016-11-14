@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B529FF31DD9F68100076FAB /* SRKUtilityCarthage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B529FF11DD9F68100076FAB /* SRKUtilityCarthage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B529FFD1DD9F6D100076FAB /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B529FFC1DD9F6D100076FAB /* UIImageHelper.swift */; };
-		1B529FFE1DD9F6D700076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B529FFC1DD9F6D100076FAB /* UIImageHelper.swift */; };
+		1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A04C1DD9F92500076FAB /* SRKUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
+		1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B529FEE1DD9F68100076FAB /* SRKUtilityCarthage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRKUtilityCarthage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B529FF11DD9F68100076FAB /* SRKUtilityCarthage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRKUtilityCarthage.h; sourceTree = "<group>"; };
-		1B529FF21DD9F68100076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B529FFC1DD9F6D100076FAB /* UIImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
+		1B52A0491DD9F92500076FAB /* SRKUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRKUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B52A04C1DD9F92500076FAB /* SRKUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRKUtility.h; sourceTree = "<group>"; };
+		1B52A04D1DD9F92500076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B52A0551DD9F94700076FAB /* UIImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1B529FEA1DD9F68100076FAB /* Frameworks */ = {
+		1B52A0451DD9F92500076FAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -30,101 +30,109 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B529FE41DD9F68100076FAB = {
+		1B52A03F1DD9F92500076FAB = {
 			isa = PBXGroup;
 			children = (
-				1B529FF01DD9F68100076FAB /* SRKUtilityCarthage */,
-				1B529FEF1DD9F68100076FAB /* Products */,
+				1B52A04B1DD9F92500076FAB /* SRKUtility */,
+				1B52A04A1DD9F92500076FAB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1B529FEF1DD9F68100076FAB /* Products */ = {
+		1B52A04A1DD9F92500076FAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B529FEE1DD9F68100076FAB /* SRKUtilityCarthage.framework */,
+				1B52A0491DD9F92500076FAB /* SRKUtility.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B529FF01DD9F68100076FAB /* SRKUtilityCarthage */ = {
+		1B52A04B1DD9F92500076FAB /* SRKUtility */ = {
 			isa = PBXGroup;
 			children = (
-				1B529FF11DD9F68100076FAB /* SRKUtilityCarthage.h */,
-				1B529FFC1DD9F6D100076FAB /* UIImageHelper.swift */,
-				1B529FF21DD9F68100076FAB /* Info.plist */,
+				1B52A04C1DD9F92500076FAB /* SRKUtility.h */,
+				1B52A0541DD9F94700076FAB /* UIImageView */,
+				1B52A04D1DD9F92500076FAB /* Info.plist */,
 			);
-			path = SRKUtilityCarthage;
+			path = SRKUtility;
+			sourceTree = "<group>";
+		};
+		1B52A0541DD9F94700076FAB /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				1B52A0551DD9F94700076FAB /* UIImageHelper.swift */,
+			);
+			name = UIImageView;
+			path = "../../SRKUtility-Source/UIImageView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1B529FEB1DD9F68100076FAB /* Headers */ = {
+		1B52A0461DD9F92500076FAB /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B529FF31DD9F68100076FAB /* SRKUtilityCarthage.h in Headers */,
-				1B529FFE1DD9F6D700076FAB /* UIImageHelper.swift in Headers */,
+				1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */,
+				1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1B529FED1DD9F68100076FAB /* SRKUtilityCarthage */ = {
+		1B52A0481DD9F92500076FAB /* SRKUtility */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B529FF61DD9F68100076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityCarthage" */;
+			buildConfigurationList = 1B52A0511DD9F92500076FAB /* Build configuration list for PBXNativeTarget "SRKUtility" */;
 			buildPhases = (
-				1B529FE91DD9F68100076FAB /* Sources */,
-				1B529FEA1DD9F68100076FAB /* Frameworks */,
-				1B529FEB1DD9F68100076FAB /* Headers */,
-				1B529FEC1DD9F68100076FAB /* Resources */,
+				1B52A0441DD9F92500076FAB /* Sources */,
+				1B52A0451DD9F92500076FAB /* Frameworks */,
+				1B52A0461DD9F92500076FAB /* Headers */,
+				1B52A0471DD9F92500076FAB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SRKUtilityCarthage;
-			productName = SRKUtilityCarthage;
-			productReference = 1B529FEE1DD9F68100076FAB /* SRKUtilityCarthage.framework */;
+			name = SRKUtility;
+			productName = SRKUtility;
+			productReference = 1B52A0491DD9F92500076FAB /* SRKUtility.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1B529FE51DD9F68100076FAB /* Project object */ = {
+		1B52A0401DD9F92500076FAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Sagar R. Kothari";
 				TargetAttributes = {
-					1B529FED1DD9F68100076FAB = {
+					1B52A0481DD9F92500076FAB = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8YWS3RCPNM;
-						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 1B529FE81DD9F68100076FAB /* Build configuration list for PBXProject "SRKUtilityCarthage" */;
+			buildConfigurationList = 1B52A0431DD9F92500076FAB /* Build configuration list for PBXProject "SRKUtility" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1B529FE41DD9F68100076FAB;
-			productRefGroup = 1B529FEF1DD9F68100076FAB /* Products */;
+			mainGroup = 1B52A03F1DD9F92500076FAB;
+			productRefGroup = 1B52A04A1DD9F92500076FAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B529FED1DD9F68100076FAB /* SRKUtilityCarthage */,
+				1B52A0481DD9F92500076FAB /* SRKUtility */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1B529FEC1DD9F68100076FAB /* Resources */ = {
+		1B52A0471DD9F92500076FAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -134,18 +142,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1B529FE91DD9F68100076FAB /* Sources */ = {
+		1B52A0441DD9F92500076FAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B529FFD1DD9F6D100076FAB /* UIImageHelper.swift in Sources */,
+				1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1B529FF41DD9F68100076FAB /* Debug */ = {
+		1B52A04F1DD9F92500076FAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -198,7 +206,7 @@
 			};
 			name = Debug;
 		};
-		1B529FF51DD9F68100076FAB /* Release */ = {
+		1B52A0501DD9F92500076FAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -244,41 +252,38 @@
 			};
 			name = Release;
 		};
-		1B529FF71DD9F68100076FAB /* Debug */ = {
+		1B52A0521DD9F92500076FAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8YWS3RCPNM;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SRKUtilityCarthage/Info.plist;
+				INFOPLIST_FILE = SRKUtility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		1B529FF81DD9F68100076FAB /* Release */ = {
+		1B52A0531DD9F92500076FAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8YWS3RCPNM;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SRKUtilityCarthage/Info.plist;
+				INFOPLIST_FILE = SRKUtility/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityCarthage;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtility;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -288,24 +293,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B529FE81DD9F68100076FAB /* Build configuration list for PBXProject "SRKUtilityCarthage" */ = {
+		1B52A0431DD9F92500076FAB /* Build configuration list for PBXProject "SRKUtility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B529FF41DD9F68100076FAB /* Debug */,
-				1B529FF51DD9F68100076FAB /* Release */,
+				1B52A04F1DD9F92500076FAB /* Debug */,
+				1B52A0501DD9F92500076FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B529FF61DD9F68100076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityCarthage" */ = {
+		1B52A0511DD9F92500076FAB /* Build configuration list for PBXNativeTarget "SRKUtility" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B529FF71DD9F68100076FAB /* Debug */,
-				1B529FF81DD9F68100076FAB /* Release */,
+				1B52A0521DD9F92500076FAB /* Debug */,
+				1B52A0531DD9F92500076FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1B529FE51DD9F68100076FAB /* Project object */;
+	rootObject = 1B52A0401DD9F92500076FAB /* Project object */;
 }

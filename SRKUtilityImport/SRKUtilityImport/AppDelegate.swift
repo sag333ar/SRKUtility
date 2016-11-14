@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SRKUtilityCarthageSample
+//  SRKUtilityImport
 //
 //  Created by Sagar on 11/14/16.
 //  Copyright © 2016 Sagar R. Kothari. All rights reserved.

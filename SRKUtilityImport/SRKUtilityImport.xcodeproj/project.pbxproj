@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B52A00C1DD9F70700076FAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A00B1DD9F70700076FAB /* AppDelegate.swift */; };
-		1B52A00E1DD9F70700076FAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A00D1DD9F70700076FAB /* ViewController.swift */; };
-		1B52A0111DD9F70700076FAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A00F1DD9F70700076FAB /* Main.storyboard */; };
-		1B52A0131DD9F70700076FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A0121DD9F70700076FAB /* Assets.xcassets */; };
-		1B52A0161DD9F70700076FAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A0141DD9F70700076FAB /* LaunchScreen.storyboard */; };
-		1B52A01E1DD9F72700076FAB /* SRKUtilityCarthage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B52A01D1DD9F72700076FAB /* SRKUtilityCarthage.framework */; };
-		1B52A01F1DD9F72700076FAB /* SRKUtilityCarthage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B52A01D1DD9F72700076FAB /* SRKUtilityCarthage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1B52A0651DD9F99F00076FAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0641DD9F99F00076FAB /* AppDelegate.swift */; };
+		1B52A0671DD9F99F00076FAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0661DD9F99F00076FAB /* ViewController.swift */; };
+		1B52A06A1DD9F99F00076FAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A0681DD9F99F00076FAB /* Main.storyboard */; };
+		1B52A06C1DD9F99F00076FAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A06B1DD9F99F00076FAB /* Assets.xcassets */; };
+		1B52A06F1DD9F99F00076FAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B52A06D1DD9F99F00076FAB /* LaunchScreen.storyboard */; };
+		1B52A0771DD9F9B700076FAB /* SRKUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B52A0761DD9F9B700076FAB /* SRKUtility.framework */; };
+		1B52A0781DD9F9B700076FAB /* SRKUtility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1B52A0761DD9F9B700076FAB /* SRKUtility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1B52A0201DD9F72700076FAB /* Embed Frameworks */ = {
+		1B52A0791DD9F9B700076FAB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1B52A01F1DD9F72700076FAB /* SRKUtilityCarthage.framework in Embed Frameworks */,
+				1B52A0781DD9F9B700076FAB /* SRKUtility.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,97 +31,97 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B52A0081DD9F70700076FAB /* SRKUtilityCarthageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRKUtilityCarthageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B52A00B1DD9F70700076FAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1B52A00D1DD9F70700076FAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1B52A0101DD9F70700076FAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1B52A0121DD9F70700076FAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1B52A0151DD9F70700076FAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1B52A0171DD9F70700076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B52A01D1DD9F72700076FAB /* SRKUtilityCarthage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SRKUtilityCarthage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B52A0611DD9F99F00076FAB /* SRKUtilityImport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SRKUtilityImport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B52A0641DD9F99F00076FAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1B52A0661DD9F99F00076FAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1B52A0691DD9F99F00076FAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1B52A06B1DD9F99F00076FAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1B52A06E1DD9F99F00076FAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1B52A0701DD9F99F00076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B52A0761DD9F9B700076FAB /* SRKUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SRKUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1B52A0051DD9F70700076FAB /* Frameworks */ = {
+		1B52A05E1DD9F99F00076FAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B52A01E1DD9F72700076FAB /* SRKUtilityCarthage.framework in Frameworks */,
+				1B52A0771DD9F9B700076FAB /* SRKUtility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B529FFF1DD9F70700076FAB = {
+		1B52A0581DD9F99F00076FAB = {
 			isa = PBXGroup;
 			children = (
-				1B52A01D1DD9F72700076FAB /* SRKUtilityCarthage.framework */,
-				1B52A00A1DD9F70700076FAB /* SRKUtilityCarthageSample */,
-				1B52A0091DD9F70700076FAB /* Products */,
+				1B52A0761DD9F9B700076FAB /* SRKUtility.framework */,
+				1B52A0631DD9F99F00076FAB /* SRKUtilityImport */,
+				1B52A0621DD9F99F00076FAB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1B52A0091DD9F70700076FAB /* Products */ = {
+		1B52A0621DD9F99F00076FAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B52A0081DD9F70700076FAB /* SRKUtilityCarthageSample.app */,
+				1B52A0611DD9F99F00076FAB /* SRKUtilityImport.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1B52A00A1DD9F70700076FAB /* SRKUtilityCarthageSample */ = {
+		1B52A0631DD9F99F00076FAB /* SRKUtilityImport */ = {
 			isa = PBXGroup;
 			children = (
-				1B52A00B1DD9F70700076FAB /* AppDelegate.swift */,
-				1B52A00D1DD9F70700076FAB /* ViewController.swift */,
-				1B52A00F1DD9F70700076FAB /* Main.storyboard */,
-				1B52A0121DD9F70700076FAB /* Assets.xcassets */,
-				1B52A0141DD9F70700076FAB /* LaunchScreen.storyboard */,
-				1B52A0171DD9F70700076FAB /* Info.plist */,
+				1B52A0641DD9F99F00076FAB /* AppDelegate.swift */,
+				1B52A0661DD9F99F00076FAB /* ViewController.swift */,
+				1B52A0681DD9F99F00076FAB /* Main.storyboard */,
+				1B52A06B1DD9F99F00076FAB /* Assets.xcassets */,
+				1B52A06D1DD9F99F00076FAB /* LaunchScreen.storyboard */,
+				1B52A0701DD9F99F00076FAB /* Info.plist */,
 			);
-			path = SRKUtilityCarthageSample;
+			path = SRKUtilityImport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1B52A0071DD9F70700076FAB /* SRKUtilityCarthageSample */ = {
+		1B52A0601DD9F99F00076FAB /* SRKUtilityImport */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1B52A01A1DD9F70700076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityCarthageSample" */;
+			buildConfigurationList = 1B52A0731DD9F99F00076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityImport" */;
 			buildPhases = (
-				1B52A0041DD9F70700076FAB /* Sources */,
-				1B52A0051DD9F70700076FAB /* Frameworks */,
-				1B52A0061DD9F70700076FAB /* Resources */,
-				1B52A0201DD9F72700076FAB /* Embed Frameworks */,
+				1B52A05D1DD9F99F00076FAB /* Sources */,
+				1B52A05E1DD9F99F00076FAB /* Frameworks */,
+				1B52A05F1DD9F99F00076FAB /* Resources */,
+				1B52A0791DD9F9B700076FAB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SRKUtilityCarthageSample;
-			productName = SRKUtilityCarthageSample;
-			productReference = 1B52A0081DD9F70700076FAB /* SRKUtilityCarthageSample.app */;
+			name = SRKUtilityImport;
+			productName = SRKUtilityImport;
+			productReference = 1B52A0611DD9F99F00076FAB /* SRKUtilityImport.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1B52A0001DD9F70700076FAB /* Project object */ = {
+		1B52A0591DD9F99F00076FAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Sagar R. Kothari";
 				TargetAttributes = {
-					1B52A0071DD9F70700076FAB = {
+					1B52A0601DD9F99F00076FAB = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8YWS3RCPNM;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 1B52A0031DD9F70700076FAB /* Build configuration list for PBXProject "SRKUtilityCarthageSample" */;
+			buildConfigurationList = 1B52A05C1DD9F99F00076FAB /* Build configuration list for PBXProject "SRKUtilityImport" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -129,54 +129,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 1B529FFF1DD9F70700076FAB;
-			productRefGroup = 1B52A0091DD9F70700076FAB /* Products */;
+			mainGroup = 1B52A0581DD9F99F00076FAB;
+			productRefGroup = 1B52A0621DD9F99F00076FAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1B52A0071DD9F70700076FAB /* SRKUtilityCarthageSample */,
+				1B52A0601DD9F99F00076FAB /* SRKUtilityImport */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1B52A0061DD9F70700076FAB /* Resources */ = {
+		1B52A05F1DD9F99F00076FAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B52A0161DD9F70700076FAB /* LaunchScreen.storyboard in Resources */,
-				1B52A0131DD9F70700076FAB /* Assets.xcassets in Resources */,
-				1B52A0111DD9F70700076FAB /* Main.storyboard in Resources */,
+				1B52A06F1DD9F99F00076FAB /* LaunchScreen.storyboard in Resources */,
+				1B52A06C1DD9F99F00076FAB /* Assets.xcassets in Resources */,
+				1B52A06A1DD9F99F00076FAB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1B52A0041DD9F70700076FAB /* Sources */ = {
+		1B52A05D1DD9F99F00076FAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B52A00E1DD9F70700076FAB /* ViewController.swift in Sources */,
-				1B52A00C1DD9F70700076FAB /* AppDelegate.swift in Sources */,
+				1B52A0671DD9F99F00076FAB /* ViewController.swift in Sources */,
+				1B52A0651DD9F99F00076FAB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1B52A00F1DD9F70700076FAB /* Main.storyboard */ = {
+		1B52A0681DD9F99F00076FAB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1B52A0101DD9F70700076FAB /* Base */,
+				1B52A0691DD9F99F00076FAB /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1B52A0141DD9F70700076FAB /* LaunchScreen.storyboard */ = {
+		1B52A06D1DD9F99F00076FAB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1B52A0151DD9F70700076FAB /* Base */,
+				1B52A06E1DD9F99F00076FAB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -184,7 +184,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1B52A0181DD9F70700076FAB /* Debug */ = {
+		1B52A0711DD9F99F00076FAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +234,7 @@
 			};
 			name = Debug;
 		};
-		1B52A0191DD9F70700076FAB /* Release */ = {
+		1B52A0721DD9F99F00076FAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -277,27 +277,27 @@
 			};
 			name = Release;
 		};
-		1B52A01B1DD9F70700076FAB /* Debug */ = {
+		1B52A0741DD9F99F00076FAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8YWS3RCPNM;
-				INFOPLIST_FILE = SRKUtilityCarthageSample/Info.plist;
+				INFOPLIST_FILE = SRKUtilityImport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityCarthageSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		1B52A01C1DD9F70700076FAB /* Release */ = {
+		1B52A0751DD9F99F00076FAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8YWS3RCPNM;
-				INFOPLIST_FILE = SRKUtilityCarthageSample/Info.plist;
+				INFOPLIST_FILE = SRKUtilityImport/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityCarthageSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sagarrkothari.SRKUtilityImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -306,24 +306,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1B52A0031DD9F70700076FAB /* Build configuration list for PBXProject "SRKUtilityCarthageSample" */ = {
+		1B52A05C1DD9F99F00076FAB /* Build configuration list for PBXProject "SRKUtilityImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B52A0181DD9F70700076FAB /* Debug */,
-				1B52A0191DD9F70700076FAB /* Release */,
+				1B52A0711DD9F99F00076FAB /* Debug */,
+				1B52A0721DD9F99F00076FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1B52A01A1DD9F70700076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityCarthageSample" */ = {
+		1B52A0731DD9F99F00076FAB /* Build configuration list for PBXNativeTarget "SRKUtilityImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B52A01B1DD9F70700076FAB /* Debug */,
-				1B52A01C1DD9F70700076FAB /* Release */,
+				1B52A0741DD9F99F00076FAB /* Debug */,
+				1B52A0751DD9F99F00076FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1B52A0001DD9F70700076FAB /* Project object */;
+	rootObject = 1B52A0591DD9F99F00076FAB /* Project object */;
 }

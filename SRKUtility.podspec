@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.1.13'
+	s.version		=	'5.1.15'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -21,42 +21,42 @@ Pod::Spec.new do |s|
 
 	s.subspec 'Camera' do |sub|
 		# sub.preserve_paths	= 	'SRKClasses', 'SRKImages'
-		sub.resources 		= 	'SRKUtility/Camera/SRKImages/*.png'
-		sub.source_files	=	'SRKUtility/Camera/SRKClasses/*.{h,m}', 'SRKUtility/Camera/SRKCamera.swift'
+		sub.resources 		= 	'SRKUtility-Source/Camera/SRKImages/*.png'
+		sub.source_files	=	'SRKUtility-Source/Camera/SRKClasses/*.{h,m}', 'SRKUtility-Source/Camera/SRKCamera.swift'
 	end
 
   s.subspec 'Request' do |sub|
-  	sub.source_files	=	'SRKUtility/RequestManager/SRKRequestManager.swift'
+  	sub.source_files	=	'SRKUtility-Source/RequestManager/SRKRequestManager.swift'
   end
 
 	s.subspec 'DeviceType' do |sub|
-		sub.source_files	=	'SRKUtility/Device/SRKDeviceType.swift'
+		sub.source_files	=	'SRKUtility-Source/Device/SRKDeviceType.swift'
 	end
 	
 	s.subspec 'Utilities' do |sub|
-		sub.source_files	=	'SRKUtility/Utility/SRKUtility.swift'
+		sub.source_files	=	'SRKUtility-Source/Utility/SRKUtility.swift'
 	end
 
 	s.subspec 'Strings' do |sub|
-		sub.source_files	=	'SRKUtility/Strings/StringHelper.swift'
+		sub.source_files	=	'SRKUtility-Source/Strings/StringHelper.swift'
 	end
 
 	s.subspec 'ImageView' do |sub|
-		sub.source_files	=	'SRKUtility/UIImageView/UIImageHelper.swift'
+		sub.source_files	=	'SRKUtility-Source/UIImageView/UIImageHelper.swift'
 	end
 
 	s.subspec 'Controls' do |sub|
-		sub.source_files		=	'SRKUtility/Controls/*.{swift}'
+		sub.source_files		=	'SRKUtility-Source/Controls/*.{swift}'
 		sub.resource_bundles	=	{
 			'Controls' => [
-				'SRKUtility/Controls/*.{xib}'
+				'SRKUtility-Source/Controls/*.{xib}'
 			]
 		}
 	end
 
 	s.subspec 'O365' do |sub|
 		# sub.preserve_paths  = 	'Helpers', 'Model'
-		sub.source_files    =  	'SRKUtility/O365/Helpers/*.{h,m}', 'SRKUtility/O365/Model/*.{h,m}'
+		sub.source_files    =  	'SRKUtility-Source/O365/Helpers/*.{h,m}', 'SRKUtility-Source/O365/Model/*.{h,m}'
 	end
 
 	s.frameworks 	= 	'UIKit', 'Foundation', 'AVFoundation'
