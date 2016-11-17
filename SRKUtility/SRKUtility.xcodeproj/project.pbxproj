@@ -18,9 +18,9 @@
 		1BB4E6C91DDE1E5C00D30145 /* CustomComboBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */; };
 		1BB4E6CA1DDE1E5C00D30145 /* DateTimeBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
 		1BB4E6CB1DDE1E5C00D30145 /* DateTimeBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */; };
-		1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; };
-		1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; };
-		1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
+		1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BB4E6F21DDE2B8F00D30145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB4E6F11DDE2B8F00D30145 /* UIKit.framework */; };
 		1BB4E6F41DDE2B9400D30145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB4E6F31DDE2B9400D30145 /* Foundation.framework */; };
 		1BB4E6F71DDE2DFA00D30145 /* ComboBoxVCtr.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C11DDE1E5C00D30145 /* ComboBoxVCtr.xib */; };
