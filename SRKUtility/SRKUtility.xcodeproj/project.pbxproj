@@ -15,11 +15,11 @@
 		1BB4E70D1DDE339700D30145 /* DateTimeBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E7031DDE339700D30145 /* DateTimeBoxVCtr.swift */; };
 		1BB4E70F1DDE339700D30145 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E7061DDE339700D30145 /* StringHelper.swift */; };
 		1BB4E7101DDE339700D30145 /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E7081DDE339700D30145 /* UIImageHelper.swift */; };
-		1BB4E7111DDE33AE00D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6FF1DDE339700D30145 /* ComboBoxVCtr.swift */; };
-		1BB4E7121DDE33AE00D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7011DDE339700D30145 /* CustomComboBoxVCtr.swift */; };
-		1BB4E7131DDE33AE00D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7031DDE339700D30145 /* DateTimeBoxVCtr.swift */; };
-		1BB4E7141DDE33AE00D30145 /* StringHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7061DDE339700D30145 /* StringHelper.swift */; };
-		1BB4E7151DDE33AE00D30145 /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7081DDE339700D30145 /* UIImageHelper.swift */; };
+		1BB4E7111DDE33AE00D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6FF1DDE339700D30145 /* ComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1BB4E7121DDE33AE00D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7011DDE339700D30145 /* CustomComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1BB4E7131DDE33AE00D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7031DDE339700D30145 /* DateTimeBoxVCtr.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1BB4E7141DDE33AE00D30145 /* StringHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7061DDE339700D30145 /* StringHelper.swift */; settings = {ATTRIBUTES = (Private, ); }; };
+		1BB4E7151DDE33AE00D30145 /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E7081DDE339700D30145 /* UIImageHelper.swift */; settings = {ATTRIBUTES = (Private, ); }; };
 		1BB4E7171DDE33E500D30145 /* Controls.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E7161DDE33E500D30145 /* Controls.bundle */; };
 /* End PBXBuildFile section */
 
