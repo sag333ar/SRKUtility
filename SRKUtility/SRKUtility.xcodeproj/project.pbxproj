@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1957691DDD93A5001668E5 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1957681DDD93A5001668E5 /* StringHelper.swift */; };
+		1B19576A1DDD93E6001668E5 /* StringHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B1957681DDD93A5001668E5 /* StringHelper.swift */; };
 		1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A04C1DD9F92500076FAB /* SRKUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
 		1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B1957681DDD93A5001668E5 /* StringHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringHelper.swift; sourceTree = "<group>"; };
 		1B52A0491DD9F92500076FAB /* SRKUtility.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SRKUtility.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B52A04C1DD9F92500076FAB /* SRKUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRKUtility.h; sourceTree = "<group>"; };
 		1B52A04D1DD9F92500076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,6 +33,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1957671DDD93A5001668E5 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				1B1957681DDD93A5001668E5 /* StringHelper.swift */,
+			);
+			name = Strings;
+			path = "../../SRKUtility-Source/Strings";
+			sourceTree = "<group>";
+		};
 		1B52A03F1DD9F92500076FAB = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				1B52A04C1DD9F92500076FAB /* SRKUtility.h */,
+				1B1957671DDD93A5001668E5 /* Strings */,
 				1B52A0541DD9F94700076FAB /* UIImageView */,
 				1B52A04D1DD9F92500076FAB /* Info.plist */,
 			);
@@ -73,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */,
+				1B19576A1DDD93E6001668E5 /* StringHelper.swift in Headers */,
 				1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1957691DDD93A5001668E5 /* StringHelper.swift in Sources */,
 				1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +324,7 @@
 				1B52A0531DD9F92500076FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
