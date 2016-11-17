@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		1B1957691DDD93A5001668E5 /* StringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1957681DDD93A5001668E5 /* StringHelper.swift */; };
-		1B19576A1DDD93E6001668E5 /* StringHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B1957681DDD93A5001668E5 /* StringHelper.swift */; };
+		1B19576A1DDD93E6001668E5 /* StringHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B1957681DDD93A5001668E5 /* StringHelper.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A04C1DD9F92500076FAB /* SRKUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
-		1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
+		1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BB4E6C61DDE1E5C00D30145 /* ComboBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; };
 		1BB4E6C71DDE1E5C00D30145 /* ComboBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C11DDE1E5C00D30145 /* ComboBoxVCtr.xib */; };
 		1BB4E6C81DDE1E5C00D30145 /* CustomComboBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; };
 		1BB4E6C91DDE1E5C00D30145 /* CustomComboBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */; };
 		1BB4E6CA1DDE1E5C00D30145 /* DateTimeBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
 		1BB4E6CB1DDE1E5C00D30145 /* DateTimeBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */; };
-		1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; };
-		1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; };
-		1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
+		1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BB4E6F21DDE2B8F00D30145 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB4E6F11DDE2B8F00D30145 /* UIKit.framework */; };
+		1BB4E6F41DDE2B9400D30145 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BB4E6F31DDE2B9400D30145 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomComboBoxVCtr.xib; sourceTree = "<group>"; };
 		1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeBoxVCtr.swift; sourceTree = "<group>"; };
 		1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTimeBoxVCtr.xib; sourceTree = "<group>"; };
+		1BB4E6F11DDE2B8F00D30145 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1BB4E6F31DDE2B9400D30145 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB4E6F41DDE2B9400D30145 /* Foundation.framework in Frameworks */,
+				1BB4E6F21DDE2B8F00D30145 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,7 @@
 			children = (
 				1B52A04B1DD9F92500076FAB /* SRKUtility */,
 				1B52A04A1DD9F92500076FAB /* Products */,
+				1BB4E6F01DDE2B8E00D30145 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +113,15 @@
 			);
 			name = Controls;
 			path = "../../SRKUtility-Source/Controls";
+			sourceTree = "<group>";
+		};
+		1BB4E6F01DDE2B8E00D30145 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BB4E6F31DDE2B9400D30145 /* Foundation.framework */,
+				1BB4E6F11DDE2B8F00D30145 /* UIKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
