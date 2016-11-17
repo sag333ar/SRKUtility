@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C41b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomComboBoxVCtr" customModule="SRKControls" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomComboBoxVCtr" customModule="SRKUtility" customModuleProvider="target">
             <connections>
                 <outlet property="pickerView" destination="XvF-Nu-eGZ" id="ajF-cU-h2X"/>
                 <outlet property="toolBar" destination="0IQ-nK-yvG" id="6Yo-Lx-mN4"/>
@@ -18,14 +19,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvF-Nu-eGZ">
-                    <rect key="frame" x="0.0" y="44" width="320" height="216"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Ksl-In-EYA"/>
                         <outlet property="delegate" destination="-1" id="H3h-Lh-ajR"/>
                     </connections>
                 </pickerView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0IQ-nK-yvG">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <items>
                         <barButtonItem title="Cancel" id="9Ac-m3-uI1">
                             <connections>
@@ -41,7 +40,7 @@
                     </items>
                 </toolbar>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XvF-Nu-eGZ" firstAttribute="top" secondItem="0IQ-nK-yvG" secondAttribute="bottom" id="9Lw-4N-mjo"/>
                 <constraint firstItem="XvF-Nu-eGZ" firstAttribute="top" secondItem="0IQ-nK-yvG" secondAttribute="bottom" id="CRP-aA-4QE"/>

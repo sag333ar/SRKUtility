@@ -1,7 +1,7 @@
 ## SRKUtility
 
-### [Install Guide](https://github.com/sag333ar/SRKUtility/wiki/InstallGuide)
+### [Install Guide](http://sagarrkothari.com/projects/publicwikipages/wiki/SRKUtility_Install_Guide)
 
-### [SRKControls Usage Guide](https://github.com/sag333ar/SRKUtility/wiki/SRKControls)
+### [SRKControls Usage Guide](http://sagarrkothari.com/projects/publicwikipages/wiki/SRKUtility_-_SRKControls_Usage_Guide)
 
-### [SRKUtility Usage Guide](https://github.com/sag333ar/SRKUtility/wiki/SRKUtilityUsageGuide)
+### [SRKUtility Usage Guide](http://sagarrkothari.com/projects/publicwikipages/wiki/SRKUtility_-_Utilities_Usage_Guide)

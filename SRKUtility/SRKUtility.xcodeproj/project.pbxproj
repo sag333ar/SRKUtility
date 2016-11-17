@@ -12,6 +12,15 @@
 		1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A04C1DD9F92500076FAB /* SRKUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
 		1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1B52A0551DD9F94700076FAB /* UIImageHelper.swift */; };
+		1BB4E6C61DDE1E5C00D30145 /* ComboBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; };
+		1BB4E6C71DDE1E5C00D30145 /* ComboBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C11DDE1E5C00D30145 /* ComboBoxVCtr.xib */; };
+		1BB4E6C81DDE1E5C00D30145 /* CustomComboBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; };
+		1BB4E6C91DDE1E5C00D30145 /* CustomComboBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */; };
+		1BB4E6CA1DDE1E5C00D30145 /* DateTimeBoxVCtr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
+		1BB4E6CB1DDE1E5C00D30145 /* DateTimeBoxVCtr.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */; };
+		1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */; };
+		1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */; };
+		1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,12 @@
 		1B52A04C1DD9F92500076FAB /* SRKUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRKUtility.h; sourceTree = "<group>"; };
 		1B52A04D1DD9F92500076FAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B52A0551DD9F94700076FAB /* UIImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageHelper.swift; sourceTree = "<group>"; };
+		1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComboBoxVCtr.swift; sourceTree = "<group>"; };
+		1BB4E6C11DDE1E5C00D30145 /* ComboBoxVCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComboBoxVCtr.xib; sourceTree = "<group>"; };
+		1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComboBoxVCtr.swift; sourceTree = "<group>"; };
+		1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomComboBoxVCtr.xib; sourceTree = "<group>"; };
+		1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTimeBoxVCtr.swift; sourceTree = "<group>"; };
+		1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateTimeBoxVCtr.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1B52A04C1DD9F92500076FAB /* SRKUtility.h */,
+				1BB4E6BF1DDE1E5C00D30145 /* Controls */,
 				1B1957671DDD93A5001668E5 /* Strings */,
 				1B52A0541DD9F94700076FAB /* UIImageView */,
 				1B52A04D1DD9F92500076FAB /* Info.plist */,
@@ -78,6 +94,20 @@
 			path = "../../SRKUtility-Source/UIImageView";
 			sourceTree = "<group>";
 		};
+		1BB4E6BF1DDE1E5C00D30145 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				1BB4E6C01DDE1E5C00D30145 /* ComboBoxVCtr.swift */,
+				1BB4E6C11DDE1E5C00D30145 /* ComboBoxVCtr.xib */,
+				1BB4E6C21DDE1E5C00D30145 /* CustomComboBoxVCtr.swift */,
+				1BB4E6C31DDE1E5C00D30145 /* CustomComboBoxVCtr.xib */,
+				1BB4E6C41DDE1E5C00D30145 /* DateTimeBoxVCtr.swift */,
+				1BB4E6C51DDE1E5C00D30145 /* DateTimeBoxVCtr.xib */,
+			);
+			name = Controls;
+			path = "../../SRKUtility-Source/Controls";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -86,6 +116,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B52A04E1DD9F92500076FAB /* SRKUtility.h in Headers */,
+				1BB4E6CC1DDE1E7200D30145 /* ComboBoxVCtr.swift in Headers */,
+				1BB4E6CD1DDE1E7200D30145 /* CustomComboBoxVCtr.swift in Headers */,
+				1BB4E6CE1DDE1E7200D30145 /* DateTimeBoxVCtr.swift in Headers */,
 				1B19576A1DDD93E6001668E5 /* StringHelper.swift in Headers */,
 				1B52A0571DD9F95800076FAB /* UIImageHelper.swift in Headers */,
 			);
@@ -123,8 +156,7 @@
 				TargetAttributes = {
 					1B52A0481DD9F92500076FAB = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 8YWS3RCPNM;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -150,6 +182,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BB4E6C91DDE1E5C00D30145 /* CustomComboBoxVCtr.xib in Resources */,
+				1BB4E6C71DDE1E5C00D30145 /* ComboBoxVCtr.xib in Resources */,
+				1BB4E6CB1DDE1E5C00D30145 /* DateTimeBoxVCtr.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +196,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B1957691DDD93A5001668E5 /* StringHelper.swift in Sources */,
+				1BB4E6C61DDE1E5C00D30145 /* ComboBoxVCtr.swift in Sources */,
+				1BB4E6CA1DDE1E5C00D30145 /* DateTimeBoxVCtr.swift in Sources */,
+				1BB4E6C81DDE1E5C00D30145 /* CustomComboBoxVCtr.swift in Sources */,
 				1B52A0561DD9F94700076FAB /* UIImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +310,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8YWS3RCPNM;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -291,7 +329,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8YWS3RCPNM;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
