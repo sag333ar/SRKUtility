@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C41b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComboBoxVCtr" customModule="SRKUtility" customModuleProvider="target">
+            <connections>
+                <outlet property="pickerView" destination="SHF-kS-8f1" id="TuK-9D-Aoh"/>
+                <outlet property="toolBar" destination="I2D-zW-xE0" id="9uZ-CF-8GG"/>
+                <outlet property="view" destination="iN0-l3-epB" id="156-1A-FB7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHF-kS-8f1">
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="5Sm-Dl-2tZ"/>
+                        <outlet property="delegate" destination="-1" id="UHk-h5-uGn"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2D-zW-xE0">
+                    <items>
+                        <barButtonItem title="Cancel" id="c97-iu-m8v">
+                            <connections>
+                                <action selector="btnCancelTapped:" destination="-1" id="73f-XI-fir"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sgq-BZ-JIi"/>
+                        <barButtonItem title="Done" id="3ui-zg-I1J">
+                            <connections>
+                                <action selector="btnDoneTapped:" destination="-1" id="8wB-gQ-Dx8"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="4fV-pc-WhV"/>
+                    </connections>
+                </toolbar>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SHF-kS-8f1" firstAttribute="top" secondItem="I2D-zW-xE0" secondAttribute="bottom" id="0cA-Hv-jBC"/>
+                <constraint firstItem="SHF-kS-8f1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Rq-Ch-GsM"/>
+                <constraint firstAttribute="trailing" secondItem="SHF-kS-8f1" secondAttribute="trailing" id="4pL-32-4pu"/>
+                <constraint firstItem="I2D-zW-xE0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="F4n-cd-tUw"/>
+                <constraint firstItem="SHF-kS-8f1" firstAttribute="top" secondItem="I2D-zW-xE0" secondAttribute="bottom" id="FLQ-C7-jlZ"/>
+                <constraint firstAttribute="bottom" secondItem="SHF-kS-8f1" secondAttribute="bottom" id="PL3-1j-9Qf"/>
+                <constraint firstItem="I2D-zW-xE0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hOv-wu-FzH"/>
+                <constraint firstAttribute="trailing" secondItem="I2D-zW-xE0" secondAttribute="trailing" id="vUn-km-uC4"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="256" y="480"/>
+        </view>
+    </objects>
+</document>
