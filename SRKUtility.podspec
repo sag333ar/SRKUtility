@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.1.16'
+	s.version		=	'5.1.24'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -55,13 +55,13 @@ Pod::Spec.new do |s|
 	end
 
 	s.subspec 'O365' do |sub|
-		# sub.preserve_paths  = 	'Helpers', 'Model'
-		sub.source_files    =  	'SRKUtility-Source/O365/Helpers/*.{h,m}', 'SRKUtility-Source/O365/Model/*.{h,m}'
+		sub.source_files    =  	'SRKUtility-Source/O365/*.{h,m}'
 	end
 
-	s.frameworks 	= 	'UIKit', 'Foundation', 'AVFoundation'
+	s.frameworks 		= 	'UIKit', 'Foundation', 'AVFoundation'
 	s.requires_arc = true
+	s.dependency			'MSGraphSDK'
+	s.dependency 			'MSGraphSDK-NXOAuth2Adapter'
 	s.dependency	 		'MBProgressHUD'
 	s.dependency 			'KSReachability'
-	s.dependency 			'ADALiOS', '~> 1.2'
 end
