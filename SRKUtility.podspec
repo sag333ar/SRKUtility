@@ -26,15 +26,15 @@ Pod::Spec.new do |s|
 	end
 
   s.subspec 'Request' do |sub|
-  	sub.source_files	=	'SRKUtility-Source/RequestManager/SRKRequestManager.swift'
+  	sub.source_files	=	'SRKUtility-Source/RequestManager/RequestManager.swift'
   end
 
 	s.subspec 'DeviceType' do |sub|
-		sub.source_files	=	'SRKUtility-Source/Device/SRKDeviceType.swift'
+		sub.source_files	=	'SRKUtility-Source/Device/DeviceType.swift'
 	end
 	
 	s.subspec 'Utilities' do |sub|
-		sub.source_files	=	'SRKUtility-Source/Utility/SRKUtility.swift'
+		sub.source_files	=	'SRKUtility-Source/Utility/Utility.swift'
 	end
 
 	s.subspec 'Strings' do |sub|
