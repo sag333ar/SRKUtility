@@ -2,9 +2,6 @@
 //  MSGraphUserInfo.m
 //  O365-iOS-Microsoft-Graph-SDK
 //
-//  Created by Sagar on 11/18/16.
-//  Copyright © 2016 Microsoft. All rights reserved.
-//
 
 #import "MSGraphUserInfo.h"
 
