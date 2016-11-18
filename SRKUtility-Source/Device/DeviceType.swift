@@ -1,9 +1,5 @@
 //
-//  SRKDeviceType.swift
-//  asdffasfd
-//
-//  Created by Sagar on 9/24/16.
-//  Copyright © 2016 sagar kothari. All rights reserved.
+//  DeviceType.swift
 //
 
 import UIKit

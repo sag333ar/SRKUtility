@@ -1,9 +1,5 @@
 //
-//  SRKUtility.swift
-//  Sagar R. Kothari
-//
-//  Created by sagar kothari
-//  Copyright © 2016 sagar kothari. All rights reserved.
+//  Utility.swift
 //
 
 import UIKit
@@ -11,13 +7,13 @@ import KSReachability
 import MBProgressHUD
 import AVFoundation
 
-@objc public class SRKUtility: NSObject {
+@objc public class Utility: NSObject {
 
 }
 
-// MARK: - SRKUtility Extension for Reachability
+// MARK: - Utility Extension for Reachability
 
-extension SRKUtility {
+extension Utility {
 
     private static var reachability: KSReachability = KSReachability.toInternet()
     public static var isReachableToNetwork: Bool {
@@ -27,9 +23,9 @@ extension SRKUtility {
     }
 }
 
-// MARK: - SRKUtility Extension for MBProgress HUD - hide and Show
+// MARK: - Utility Extension for MBProgress HUD - hide and Show
 
-extension SRKUtility {
+extension Utility {
 
     private static var progressHUD: MBProgressHUD? = nil
     public class func showProgressHUD(viewController from: UIViewController,
@@ -66,9 +62,9 @@ extension SRKUtility {
 
 }
 
-// MARK: - SRKUtility Extension Some Useful utilities
+// MARK: - Utility Extension Some Useful utilities
 
-extension SRKUtility {
+extension Utility {
 
     public class func showErrorMessage(title: String,
                                        message: String,
@@ -134,9 +130,9 @@ extension SRKUtility {
 
 }
 
-// MARK: - SRKUtility Extension for UserDefaults
+// MARK: - Utility Extension for UserDefaults
 
-extension SRKUtility {
+extension Utility {
 
     public class func saveValueForKey(value: AnyObject, forKey: String) -> Bool {
         UserDefaults.standard.set(value, forKey: forKey)
@@ -169,9 +165,9 @@ extension SRKUtility {
 
 }
 
-// MARK: - SRKUtility Extension for Base64
+// MARK: - Utility Extension for Base64
 
-extension SRKUtility {
+extension Utility {
 
     public class func base64StringFromData(data: NSData) -> String {
         let base64String = data.base64EncodedString(

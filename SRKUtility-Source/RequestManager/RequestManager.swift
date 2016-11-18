@@ -1,8 +1,5 @@
 //
-//  SRKRequestManager.swift
-//  Pods
-//
-//  Created by Sagar on 12/31/15.
+//  RequestManager.swift
 //
 //
 
@@ -32,20 +29,20 @@ public enum ImageResponse {
 	case error(Error)
 }
 
-public enum SRKError: Error {
+public enum RMError: Error {
 	case InvalidResponseReceived
 	case InvalidRequestReceived
 	case CustomMessage(String)
 	case Error(Error)
 }
 
-public enum SRKResponse {
-	case error(SRKError)
+public enum RMResponse {
+	case error(RMError)
 	case successWithDictionary([String: AnyObject])
 	case successWithArray([[String: AnyObject]])
 }
 
-@objc open class SRKRequestManager: NSObject {
+@objc open class RequestManager: NSObject {
 	
 	// MARK:- Query String generator
 	open class func generateQueryString(_ dictionary: [String: String]) -> String {
@@ -127,7 +124,7 @@ public enum SRKResponse {
 			} else if let dataReceived = data {
 				handler(Response.result(dataReceived, response))
 			} else {
-				let erroR = NSError(domain: "SRKRequestManager",
+				let erroR = NSError(domain: "RequestManager",
 				                    code: 500,
 				                    userInfo: ["Some error occured": NSLocalizedDescriptionKey])
 				handler(Response.error(response!, erroR))
@@ -145,13 +142,13 @@ public enum SRKResponse {
 			} else if let array = obj as? [AnyObject] {
 				return JSONResponse.array(array, urlresponse)
 			} else {
-				let erroR = NSError(domain: "SRKRequestManager",
+				let erroR = NSError(domain: "RequestManager",
 				                    code: 501,
 				                    userInfo: ["Error occured in JSON Parsing": NSLocalizedDescriptionKey])
 				return JSONResponse.error(urlresponse, erroR)
 			}
 		} catch {
-			let erroR = NSError(domain: "SRKRequestManager",
+			let erroR = NSError(domain: "RequestManager",
 			                    code: 501,
 			                    userInfo: ["Error occured in JSON Parsing": NSLocalizedDescriptionKey])
 			return JSONResponse.error(urlresponse, erroR)
@@ -168,7 +165,7 @@ public enum SRKResponse {
 						let decryptedData = try self.decryptData(data, password: pswd)
 						handler(self.parseJSONData(decryptedData, urlresponse: urlresponse))
 					} catch {
-						let erroR = NSError(domain: "SRKRequestManager",
+						let erroR = NSError(domain: "RequestManager",
 						                    code: 502,
 						                    userInfo: ["Error occured in Decrypting Data": NSLocalizedDescriptionKey])
 						handler(JSONResponse.error(urlresponse, erroR))
@@ -184,26 +181,26 @@ public enum SRKResponse {
 	}
 	*/
 	
-	open class func handleResponse(_ jsonResponse: JSONResponse) -> SRKResponse {
+	open class func handleResponse(_ jsonResponse: JSONResponse) -> RMResponse {
 		switch jsonResponse {
 		case let .array(array, _):
 			print("Invalid array received \(array)")
-			return SRKResponse.error(SRKError.InvalidResponseReceived)
+			return RMResponse.error(RMError.InvalidResponseReceived)
 		case let .dictionary(dictionaryOfResponse, _):
 			if let success = dictionaryOfResponse["success"] as? Bool, success == true {
 				if let response = dictionaryOfResponse["response"] {
 					if let res = response as? [String: AnyObject] {
-						return SRKResponse.successWithDictionary(res)
+						return RMResponse.successWithDictionary(res)
 					}
 					if let res = response as? [[String: AnyObject]] {
-						return SRKResponse.successWithArray(res)
+						return RMResponse.successWithArray(res)
 					}
 				}
-				return SRKResponse.error(SRKError.InvalidResponseReceived)
+				return RMResponse.error(RMError.InvalidResponseReceived)
 			}
-			return SRKResponse.error(SRKError.InvalidResponseReceived)
+			return RMResponse.error(RMError.InvalidResponseReceived)
 		case let .error(_, error):
-			return SRKResponse.error(SRKError.Error(error))
+			return RMResponse.error(RMError.Error(error))
 		}
 	}
 	
@@ -280,7 +277,7 @@ public enum SRKResponse {
 					try? data.write(to: URL(fileURLWithPath: filePath), options: [.atomic])
 					handler(ImageResponse.image(img))
 				} else {
-					let erroR = NSError(domain: "SRKRequestManager",
+					let erroR = NSError(domain: "RequestManager",
 					                    code: 502,
 					                    userInfo: ["Error generating image from specified url.": NSLocalizedDescriptionKey])
 					handler(ImageResponse.error(erroR))
