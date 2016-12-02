@@ -29,7 +29,7 @@ import UIKit
 
 @objc open class SRKCustomComboBox: UITextField {
 	open weak var delegateForComboBox: SRKCustomComboBoxDelegate?
-	var objCustomComboBoxVCtr: CustomComboBoxVCtr?
+	open var objCustomComboBoxVCtr: CustomComboBoxVCtr?
 
 	open func showOptions() {
 		let podBundle = Bundle(for: self.classForCoder)
@@ -58,8 +58,8 @@ import UIKit
 
 @objc open class CustomComboBoxVCtr: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
 
-	@IBOutlet weak var pickerView: UIPickerView!
-	@IBOutlet weak var toolBar: UIToolbar!
+	@IBOutlet open weak var pickerView: UIPickerView!
+	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKCustomComboBox: SRKCustomComboBox?
 
 	override open func viewDidLoad() {

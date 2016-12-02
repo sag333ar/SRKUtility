@@ -30,7 +30,7 @@ import UIKit
 
 @objc open class SRKDateTimeBox: UITextField {
 	open weak var delegateForDateTimeBox: SRKDateTimeBoxDelegate?
-	var objDateTimeBoxVCtr: DateTimeBoxVCtr?
+	open var objDateTimeBoxVCtr: DateTimeBoxVCtr?
 
 	open func showOptions() {
 		let podBundle = Bundle(for: self.classForCoder)
@@ -59,8 +59,8 @@ import UIKit
 
 @objc open class DateTimeBoxVCtr: UIViewController, UIPopoverPresentationControllerDelegate {
 
-	@IBOutlet weak var pickerView: UIDatePicker!
-	@IBOutlet weak var toolBar: UIToolbar!
+	@IBOutlet open weak var pickerView: UIDatePicker!
+	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKDateTimeBox: SRKDateTimeBox?
 
 	override open func viewDidLoad() {

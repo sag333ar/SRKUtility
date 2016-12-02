@@ -27,7 +27,7 @@ import UIKit
 
 @objc open class SRKComboBox: UITextField {
 	open weak var delegateForComboBox: SRKComboBoxDelegate?
-	var objComboBoxVCtr: ComboBoxVCtr?
+	open var objComboBoxVCtr: ComboBoxVCtr?
 
 	open func showOptions() {
 		let podBundle = Bundle(for: self.classForCoder)
@@ -56,8 +56,8 @@ import UIKit
 
 @objc open class ComboBoxVCtr: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
 
-	@IBOutlet weak var pickerView: UIPickerView!
-	@IBOutlet weak var toolBar: UIToolbar!
+	@IBOutlet open weak var pickerView: UIPickerView!
+	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKComboBox: SRKComboBox?
 
     override open func viewDidLoad() {
