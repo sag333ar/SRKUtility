@@ -1,28 +1,24 @@
 //
 //  ComboBoxVCtr.swift
-//  BeautyNotes
-//
-//  Created by Sagar on 12/18/15.
-//  Copyright © 2015 Sagar R. Kothari. All rights reserved.
 //
 
 import UIKit
 
-@objc public protocol SRKComboBoxDelegate: NSObjectProtocol {
+@objc public protocol ComboBoxDelegate: NSObjectProtocol {
 
-	func comboBox(_ textField: SRKComboBox, didSelectRow row: Int)
-	func comboBoxNumberOfRows(_ textField: SRKComboBox) -> Int
-	func comboBox(_ textField: SRKComboBox, textForRow row: Int) -> String
-	func comboBoxPresentingViewController(_ textField: SRKComboBox) -> UIViewController
-	func comboBoxRectFromWhereToPresent(_ textField: SRKComboBox) -> CGRect
+	func comboBox(_ textField: ComboBox, didSelectRow row: Int)
+	func comboBoxNumberOfRows(_ textField: ComboBox) -> Int
+	func comboBox(_ textField: ComboBox, textForRow row: Int) -> String
+	func comboBoxPresentingViewController(_ textField: ComboBox) -> UIViewController
+	func comboBoxRectFromWhereToPresent(_ textField: ComboBox) -> CGRect
 
-	func comboBoxFromBarButton(_ textField: SRKComboBox) -> UIBarButtonItem?
+	func comboBoxFromBarButton(_ textField: ComboBox) -> UIBarButtonItem?
 
-	func comboBoxTintColor(_ textField: SRKComboBox) -> UIColor
-	func comboBoxToolbarColor(_ textField: SRKComboBox) -> UIColor
+	func comboBoxTintColor(_ textField: ComboBox) -> UIColor
+	func comboBoxToolbarColor(_ textField: ComboBox) -> UIColor
 
-	func comboBoxDidTappedCancel(_ textField: SRKComboBox)
-	func comboBoxDidTappedDone(_ textField: SRKComboBox)
+	func comboBoxDidTappedCancel(_ textField: ComboBox)
+	func comboBoxDidTappedDone(_ textField: ComboBox)
 }
 
 @objc open class SRKComboBox: UITextField {
@@ -36,7 +32,7 @@ import UIKit
 				self.objComboBoxVCtr = ComboBoxVCtr(nibName: "ComboBoxVCtr", bundle: bundle)
 				self.objComboBoxVCtr?.modalPresentationStyle = .popover
 				self.objComboBoxVCtr?.popoverPresentationController?.delegate = self.objComboBoxVCtr
-				self.objComboBoxVCtr?.refSRKComboBox = self
+				self.objComboBoxVCtr?.refComboBox = self
 				if let btn = self.delegateForComboBox?.comboBoxFromBarButton(self) {
 					self.objComboBoxVCtr?.popoverPresentationController?.barButtonItem = btn
 				} else {
@@ -56,22 +52,32 @@ import UIKit
 
 @objc open class ComboBoxVCtr: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
 
+<<<<<<< HEAD
 	@IBOutlet open weak var pickerView: UIPickerView!
 	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKComboBox: SRKComboBox?
+||||||| merged common ancestors
+	@IBOutlet weak var pickerView: UIPickerView!
+	@IBOutlet weak var toolBar: UIToolbar!
+	weak var refSRKComboBox: SRKComboBox?
+=======
+	@IBOutlet weak var pickerView: UIPickerView!
+	@IBOutlet weak var toolBar: UIToolbar!
+	weak var refComboBox: ComboBox?
+>>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
 
     override open func viewDidLoad() {
         super.viewDidLoad()
 		self.preferredContentSize = CGSize(width: 320, height: 260)
-		if let clr = self.refSRKComboBox?.delegateForComboBox?.comboBoxTintColor(self.refSRKComboBox!) {
+		if let clr = self.refComboBox?.delegateForComboBox?.comboBoxTintColor(self.refComboBox!) {
 			self.toolBar.tintColor = clr
 		}
 
-		if let clr = self.refSRKComboBox?.delegateForComboBox?.comboBoxToolbarColor(self.refSRKComboBox!) {
+		if let clr = self.refComboBox?.delegateForComboBox?.comboBoxToolbarColor(self.refComboBox!) {
 			self.toolBar.backgroundColor = clr
 		}
 
-		self.refSRKComboBox!.delegateForComboBox?.comboBox(self.refSRKComboBox!, didSelectRow: 0)
+		self.refComboBox!.delegateForComboBox?.comboBox(self.refComboBox!, didSelectRow: 0)
     }
 
     override open func didReceiveMemoryWarning() {
@@ -79,15 +85,15 @@ import UIKit
     }
 
 	open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		self.refSRKComboBox!.delegateForComboBox?.comboBox(self.refSRKComboBox!, didSelectRow: row)
+		self.refComboBox!.delegateForComboBox?.comboBox(self.refComboBox!, didSelectRow: row)
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return (self.refSRKComboBox?.delegateForComboBox?.comboBoxNumberOfRows(self.refSRKComboBox!))!
+		return (self.refComboBox?.delegateForComboBox?.comboBoxNumberOfRows(self.refComboBox!))!
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-		return self.refSRKComboBox?.delegateForComboBox?.comboBox(self.refSRKComboBox!, textForRow: row)
+		return self.refComboBox?.delegateForComboBox?.comboBox(self.refComboBox!, textForRow: row)
 	}
 
 	open func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -95,12 +101,12 @@ import UIKit
 	}
 
 	@IBAction open func btnDoneTapped(_ sender: UIBarButtonItem) {
-		self.refSRKComboBox?.delegateForComboBox?.comboBoxDidTappedDone(self.refSRKComboBox!)
+		self.refComboBox?.delegateForComboBox?.comboBoxDidTappedDone(self.refComboBox!)
 		self.dismiss(animated: true, completion: nil)
 	}
 
 	@IBAction open func btnCancelTapped(_ sender: UIBarButtonItem) {
-		self.refSRKComboBox?.delegateForComboBox?.comboBoxDidTappedCancel(self.refSRKComboBox!)
+		self.refComboBox?.delegateForComboBox?.comboBoxDidTappedCancel(self.refComboBox!)
 		self.dismiss(animated: true, completion: nil)
 	}
 

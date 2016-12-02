@@ -2,9 +2,6 @@
 //  StringHelper.swift
 //
 //
-//  Created by Sagar on 9/28/16.
-//  Copyright © 2016 Sagar R. Kothari. All rights reserved.
-//
 
 import UIKit
 

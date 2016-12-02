@@ -1,12 +1,37 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16C41b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+||||||| merged common ancestors
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C48b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+>>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
     <dependencies>
+<<<<<<< HEAD
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+||||||| merged common ancestors
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+>>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
     </dependencies>
     <objects>
+<<<<<<< HEAD
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComboBoxVCtr" customModule="SRKUtility" customModuleProvider="target">
+||||||| merged common ancestors
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComboBoxVCtr" customModule="SRKControls" customModuleProvider="target">
+=======
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComboBoxVCtr" customModule="Controls" customModuleProvider="target">
+>>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
             <connections>
                 <outlet property="pickerView" destination="SHF-kS-8f1" id="TuK-9D-Aoh"/>
                 <outlet property="toolBar" destination="I2D-zW-xE0" id="9uZ-CF-8GG"/>
