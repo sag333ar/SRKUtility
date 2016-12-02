@@ -52,19 +52,9 @@ import UIKit
 
 @objc open class ComboBoxVCtr: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UIPopoverPresentationControllerDelegate {
 
-<<<<<<< HEAD
 	@IBOutlet open weak var pickerView: UIPickerView!
 	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKComboBox: SRKComboBox?
-||||||| merged common ancestors
-	@IBOutlet weak var pickerView: UIPickerView!
-	@IBOutlet weak var toolBar: UIToolbar!
-	weak var refSRKComboBox: SRKComboBox?
-=======
-	@IBOutlet weak var pickerView: UIPickerView!
-	@IBOutlet weak var toolBar: UIToolbar!
-	weak var refComboBox: ComboBox?
->>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
 
     override open func viewDidLoad() {
         super.viewDidLoad()

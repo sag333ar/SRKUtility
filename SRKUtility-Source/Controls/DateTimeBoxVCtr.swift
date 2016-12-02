@@ -55,19 +55,9 @@ import UIKit
 
 @objc open class DateTimeBoxVCtr: UIViewController, UIPopoverPresentationControllerDelegate {
 
-<<<<<<< HEAD
 	@IBOutlet open weak var pickerView: UIDatePicker!
 	@IBOutlet open weak var toolBar: UIToolbar!
 	weak var refSRKDateTimeBox: SRKDateTimeBox?
-||||||| merged common ancestors
-	@IBOutlet weak var pickerView: UIDatePicker!
-	@IBOutlet weak var toolBar: UIToolbar!
-	weak var refSRKDateTimeBox: SRKDateTimeBox?
-=======
-	@IBOutlet weak var pickerView: UIDatePicker!
-	@IBOutlet weak var toolBar: UIToolbar!
-	weak var refDateTimeBox: DateTimeBox?
->>>>>>> 5e2ebf96702965035bd4ea0d8e53ab164aee636c
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()
