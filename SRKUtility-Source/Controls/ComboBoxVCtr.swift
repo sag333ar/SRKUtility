@@ -21,8 +21,8 @@ import UIKit
 	func comboBoxDidTappedDone(_ textField: ComboBox)
 }
 
-@objc open class SRKComboBox: UITextField {
-	open weak var delegateForComboBox: SRKComboBoxDelegate?
+@objc open class ComboBox: UITextField {
+	open weak var delegateForComboBox: ComboBoxDelegate?
 	open var objComboBoxVCtr: ComboBoxVCtr?
 
 	open func showOptions() {
@@ -54,7 +54,7 @@ import UIKit
 
 	@IBOutlet open weak var pickerView: UIPickerView!
 	@IBOutlet open weak var toolBar: UIToolbar!
-	weak var refSRKComboBox: SRKComboBox?
+	weak var refComboBox: ComboBox?
 
     override open func viewDidLoad() {
         super.viewDidLoad()

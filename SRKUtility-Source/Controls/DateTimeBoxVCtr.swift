@@ -24,8 +24,8 @@ import UIKit
 	func dateTimeBoxDidTappedDone(_ textField: DateTimeBox)
 }
 
-@objc open class SRKDateTimeBox: UITextField {
-	open weak var delegateForDateTimeBox: SRKDateTimeBoxDelegate?
+@objc open class DateTimeBox: UITextField {
+	open weak var delegateForDateTimeBox: DateTimeBoxDelegate?
 	open var objDateTimeBoxVCtr: DateTimeBoxVCtr?
 
 	open func showOptions() {
@@ -57,7 +57,7 @@ import UIKit
 
 	@IBOutlet open weak var pickerView: UIDatePicker!
 	@IBOutlet open weak var toolBar: UIToolbar!
-	weak var refSRKDateTimeBox: SRKDateTimeBox?
+	weak var refDateTimeBox: DateTimeBox?
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()

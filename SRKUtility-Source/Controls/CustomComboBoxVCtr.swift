@@ -3,27 +3,27 @@
 //
 import UIKit
 
-@objc public protocol CustomComboBoxDelegateDelegate: NSObjectProtocol {
+@objc public protocol CustomComboBoxDelegate: NSObjectProtocol {
 
-	func customComboBox(_ textField: CustomComboBoxDelegate, didSelect row: Int)
-	func customComboBoxNumberOfRows(_ textField: CustomComboBoxDelegate) -> Int
-	func customComboBoxHeightForRows(_ textField: CustomComboBoxDelegate) -> CGFloat
-	func customComboBox(_ textField: CustomComboBoxDelegate, viewFor row: Int, reusingView view: UIView?) -> UIView
+	func customComboBox(_ textField: CustomComboBox, didSelect row: Int)
+	func customComboBoxNumberOfRows(_ textField: CustomComboBox) -> Int
+	func customComboBoxHeightForRows(_ textField: CustomComboBox) -> CGFloat
+	func customComboBox(_ textField: CustomComboBox, viewFor row: Int, reusingView view: UIView?) -> UIView
 
-	func customComboBoxPresentingViewController(_ textField: CustomComboBoxDelegate) -> UIViewController
-	func customComboBoxRectFromWhereToPresent(_ textField: CustomComboBoxDelegate) -> CGRect
+	func customComboBoxPresentingViewController(_ textField: CustomComboBox) -> UIViewController
+	func customComboBoxRectFromWhereToPresent(_ textField: CustomComboBox) -> CGRect
 
-	func customComboBoxFromBarButton(_ textField: CustomComboBoxDelegate) -> UIBarButtonItem?
+	func customComboBoxFromBarButton(_ textField: CustomComboBox) -> UIBarButtonItem?
 
-	func customComboBoxTintColor(_ textField: CustomComboBoxDelegate) -> UIColor
-	func customComboBoxToolbarColor(_ textField: CustomComboBoxDelegate) -> UIColor
+	func customComboBoxTintColor(_ textField: CustomComboBox) -> UIColor
+	func customComboBoxToolbarColor(_ textField: CustomComboBox) -> UIColor
 
-	func customComboBoxDidTappedCancel(_ textField: CustomComboBoxDelegate)
-	func customComboBoxDidTappedDone(_ textField: CustomComboBoxDelegate)
+	func customComboBoxDidTappedCancel(_ textField: CustomComboBox)
+	func customComboBoxDidTappedDone(_ textField: CustomComboBox)
 }
 
-@objc open class SRKCustomComboBox: UITextField {
-	open weak var delegateForComboBox: SRKCustomComboBoxDelegate?
+@objc open class CustomComboBox: UITextField {
+	open weak var delegateForComboBox: CustomComboBoxDelegate?
 	open var objCustomComboBoxVCtr: CustomComboBoxVCtr?
 
 	open func showOptions() {
@@ -33,7 +33,7 @@ import UIKit
 				self.objCustomComboBoxVCtr = CustomComboBoxVCtr(nibName: "CustomComboBoxVCtr", bundle: bundle)
 				self.objCustomComboBoxVCtr?.modalPresentationStyle = .popover
 				self.objCustomComboBoxVCtr?.popoverPresentationController?.delegate = self.objCustomComboBoxVCtr
-				self.objCustomComboBoxVCtr?.refCustomComboBoxDelegate = self
+				self.objCustomComboBoxVCtr?.refCustomComboBox = self
 				if let btn = self.delegateForComboBox?.customComboBoxFromBarButton(self) {
 					self.objCustomComboBoxVCtr?.popoverPresentationController?.barButtonItem = btn
 				} else {
@@ -55,20 +55,20 @@ import UIKit
 
 	@IBOutlet open weak var pickerView: UIPickerView!
 	@IBOutlet open weak var toolBar: UIToolbar!
-	weak var refSRKCustomComboBox: SRKCustomComboBox?
+	weak var refCustomComboBox: CustomComboBox?
 
 	override open func viewDidLoad() {
 		super.viewDidLoad()
 		self.preferredContentSize = CGSize(width: 320, height: 260)
-		if let clr = self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxTintColor(self.refCustomComboBoxDelegate!) {
+		if let clr = self.refCustomComboBox?.delegateForComboBox?.customComboBoxTintColor(self.refCustomComboBox!) {
 			self.toolBar.tintColor = clr
 		}
 
-		if let clr = self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxToolbarColor(self.refCustomComboBoxDelegate!) {
+		if let clr = self.refCustomComboBox?.delegateForComboBox?.customComboBoxToolbarColor(self.refCustomComboBox!) {
 			self.toolBar.backgroundColor = clr
 		}
 
-		self.refCustomComboBoxDelegate!.delegateForComboBox?.customComboBox(self.refCustomComboBoxDelegate!, didSelect: 0)
+		self.refCustomComboBox!.delegateForComboBox?.customComboBox(self.refCustomComboBox!, didSelect: 0)
 	}
 
 	override open func didReceiveMemoryWarning() {
@@ -76,19 +76,19 @@ import UIKit
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-		self.refCustomComboBoxDelegate!.delegateForComboBox?.customComboBox(self.refCustomComboBoxDelegate!, didSelect: row)
+		self.refCustomComboBox!.delegateForComboBox?.customComboBox(self.refCustomComboBox!, didSelect: row)
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return (self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxNumberOfRows(self.refCustomComboBoxDelegate!))!
+		return self.refCustomComboBox!.delegateForComboBox!.customComboBoxNumberOfRows(self.refCustomComboBox!)
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-		return (self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxHeightForRows(self.refCustomComboBoxDelegate!))!
+		return self.refCustomComboBox!.delegateForComboBox!.customComboBoxHeightForRows(self.refCustomComboBox!)
 	}
 
 	open func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-		return (self.refCustomComboBoxDelegate!.delegateForComboBox?.customComboBox(self.refCustomComboBoxDelegate!, viewFor: row, reusingView: view))!
+		return self.refCustomComboBox!.delegateForComboBox!.customComboBox(self.refCustomComboBox!, viewFor: row, reusingView: view)
 	}
 
 	open func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -96,12 +96,12 @@ import UIKit
 	}
 
 	@IBAction open func btnDoneTapped(_ sender: UIBarButtonItem) {
-		self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxDidTappedDone(self.refCustomComboBoxDelegate!)
+		self.refCustomComboBox!.delegateForComboBox!.customComboBoxDidTappedDone(self.refCustomComboBox!)
 		self.dismiss(animated: true, completion: nil)
 	}
 
 	@IBAction open func btnCancelTapped(_ sender: UIBarButtonItem) {
-		self.refCustomComboBoxDelegate?.delegateForComboBox?.customComboBoxDidTappedCancel(self.refCustomComboBoxDelegate!)
+		self.refCustomComboBox!.delegateForComboBox!.customComboBoxDidTappedCancel(self.refCustomComboBox!)
 		self.dismiss(animated: true, completion: nil)
 	}
 
