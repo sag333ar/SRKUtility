@@ -68,7 +68,7 @@ import UIKit
 			self.toolBar.backgroundColor = clr
 		}
 
-		self.refCustomComboBox!.delegateForComboBox?.customComboBox(self.refCustomComboBox!, didSelect: 0)
+		// self.refCustomComboBox!.delegateForComboBox?.customComboBox(self.refCustomComboBox!, didSelect: 0)
 	}
 
 	override open func didReceiveMemoryWarning() {

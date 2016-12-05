@@ -78,7 +78,7 @@ import UIKit
 			self.pickerView.minimumDate = min
 		}
 
-		self.pickerView.datePickerMode = (self.refDateTimeBox?.delegateForDateTimeBox?.dateTimeBoxType(self.refDateTimeBox!))!
+		// self.pickerView.datePickerMode = (self.refDateTimeBox?.delegateForDateTimeBox?.dateTimeBoxType(self.refDateTimeBox!))!
 	}
 
 	override open func didReceiveMemoryWarning() {
