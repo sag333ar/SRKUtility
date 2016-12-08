@@ -27,36 +27,31 @@ extension Utility {
 
 extension Utility {
 
-    private static var progressHUD: MBProgressHUD? = nil
-    public class func showProgressHUD(viewController from: UIViewController,
+    public class func showProgressHUD(view from: UIView,
                                       title: String,
                                       subtitle: String,
                                       titleFont: UIFont?,
-                                      subtitleFont: UIFont?) {
+                                      subtitleFont: UIFont?) -> MBProgressHUD {
+		let hud = MBProgressHUD(view: from)
         OperationQueue.main.addOperation {
-            self.progressHUD = MBProgressHUD(view: from.view)
-            from.view.addSubview(self.progressHUD!)
-            self.progressHUD?.label.text = title
-            self.progressHUD?.detailsLabel.text = subtitle
+            from.addSubview(hud)
+            hud.label.text = title
+            hud.detailsLabel.text = subtitle
             if let font = titleFont {
-                self.progressHUD?.label.font = font
+                hud.label.font = font
             }
             if let font = subtitleFont {
-                self.progressHUD?.detailsLabel.font = font
+                hud.detailsLabel.font = font
             }
-            self.progressHUD?.removeFromSuperViewOnHide = true
-            self.progressHUD?.show(animated: false)
+            hud.removeFromSuperViewOnHide = true
+			hud.show(animated: false)
         }
+		return hud
     }
 
-    public class func hideProgressHUD() {
+	public class func hideProgressHUD(_ hud: MBProgressHUD) {
         OperationQueue.main.addOperation {
-            if let hud = self.progressHUD {
-                if let _ = hud.superview {
-                    hud.hide(animated: false)
-                }
-                self.progressHUD = nil
-            }
+            hud.hide(animated: false)
         }
     }
 
