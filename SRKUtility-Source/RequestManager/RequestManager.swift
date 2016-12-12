@@ -339,11 +339,12 @@ public enum RMResponse {
 		return fm.fileExists(atPath: filePath)
 	}
 	
-	open class func loadCachedFile(_ forURLString: String, handler: @escaping (String) -> Void) {
+	open class func loadCachedFile(_ forURLString: String, handler: @escaping (String) -> Void) -> URLSessionDownloadTask? {
 		if self.isFileDownloaded(forURLString) {
 			handler(self.generatedLocalURL(forURLString))
+			return nil
 		} else {
-			self.downloadFile(forURLString, handler: handler)
+			return self.downloadFile(forURLString, handler: handler)
 		}
 	}
 }
