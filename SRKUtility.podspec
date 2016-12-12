@@ -3,7 +3,7 @@
 #
 
 Pod::Spec.new do |s|
-	s.version		=	'5.2.5'
+	s.version		=	'5.2.6'
 	s.name			=	'SRKUtility'
   	s.summary  	 	=   'A pod which helps you to easily save values to NSUserDefaults, display progressHUD and check Network Reachability. base64 data conversion.'
 	s.authors		=	{ "Sagar Kothari" => "sag333ar@gmail.com" }
@@ -58,7 +58,11 @@ Pod::Spec.new do |s|
 		sub.source_files    =  	'SRKUtility-Source/O365/*.{h,m}'
 	end
 
-	s.frameworks 		= 	'UIKit', 'Foundation', 'AVFoundation'
+	s.subspec 'AudioManager' do |sub|
+		sub.source_files    =  	'SRKUtility-Source/AudioManager/*.{swift}'
+	end
+
+	s.frameworks 		= 	'UIKit', 'Foundation', 'AVFoundation', 'MediaPlayer'
 	s.requires_arc = true
 	s.dependency			'MSGraphSDK'
 	s.dependency 			'MSGraphSDK-NXOAuth2Adapter'
