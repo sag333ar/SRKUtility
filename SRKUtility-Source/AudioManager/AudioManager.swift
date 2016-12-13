@@ -274,8 +274,10 @@ public class CustomAudioManager: NSObject {
     public func actionPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         if CustomAudioPlayer.shared.isPaused() {
             CustomAudioPlayer.shared.resume()
+            handler(false)
         } else if CustomAudioPlayer.shared.isPlaying() {
             print("Do nothing. Already playing.")
+            handler(false)
         } else {
             CustomAudioManager.shared.playAudioUsingCurrentIndex(timeOut, handler: handler)
         }
