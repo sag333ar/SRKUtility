@@ -2,6 +2,13 @@ import Foundation
 import UIKit
 import MediaPlayer
 
+public enum CustomAudioPlayerStatus: Int {
+    case Playing
+    case Paused
+    case Downloading
+    case Unknown
+}
+
 class CustomAudioPlayer: NSObject {
     
     class var shared: CustomAudioPlayer {
@@ -125,12 +132,26 @@ class CustomAudioPlayer: NSObject {
                 } else {
                     handler(true)
                 }
+                self.downloadTask = nil
             }
         }
         if let task = self.downloadTask {
             task.priority = 1.0
         }
     }
+    
+    func getStatusOfPlayer() -> CustomAudioPlayerStatus {
+        if self.isPlaying() == true {
+            return .Playing
+        } else if self.isPaused() == true {
+            return .Paused
+        } else if let task = self.downloadTask, task.state == .running {
+            return .Downloading
+        } else {
+            return .Unknown
+        }
+    }
+
 }
 
 extension CustomAudioPlayer {
@@ -197,10 +218,12 @@ extension CustomAudioPlayer {
             return CustomAudioPlayer.downloadFile(forURLString, timeout: timeout, handler: handler)
         }
     }
+
 }
 
 public class CustomAudioManager: NSObject {
-    public var index = 0
+    
+    /** Please use this Shared instance to play audios. */
     public class var shared: CustomAudioManager {
         get {
             struct Single {
@@ -228,7 +251,11 @@ public class CustomAudioManager: NSObject {
         self.setupRemoteCommandCenter()
     }
     
+    /** Set the audio URLs to play */
     public var audios: [String] = []
+    
+    /** Set the index for Audio play */
+    public var index = 0
     
     func downloadAndPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         CustomAudioPlayer.shared.downloadAndPlayAudio(CustomAudioManager.shared.audios[CustomAudioManager.shared.index], timeOut: timeOut, handler: handler)
@@ -243,6 +270,7 @@ public class CustomAudioManager: NSObject {
         CustomAudioManager.shared.downloadAndPlayAudio(timeOut, handler: handler)
     }
     
+    /** Download and Play Audio form current index */
     public func actionPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         if CustomAudioPlayer.shared.isPaused() {
             CustomAudioPlayer.shared.resume()
@@ -253,10 +281,12 @@ public class CustomAudioManager: NSObject {
         }
     }
     
+    /** Pause Audio. If already downloaded, play. */
     public func actionPauseAudio() {
         CustomAudioPlayer.shared.pausePlayer()
     }
     
+    /** Start downloading Next Audio. If already downloaded, play. */
     public func actionNextAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         if CustomAudioManager.shared.index + 1 >= CustomAudioManager.shared.audios.count {
             CustomAudioManager.shared.index = 0
@@ -266,6 +296,7 @@ public class CustomAudioManager: NSObject {
         CustomAudioManager.shared.playAudioUsingCurrentIndex(timeOut, handler: handler)
     }
     
+    /** Start downloading Previous Audio. If already downloaded, play. */
     public func actionPreviousAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         if CustomAudioManager.shared.index - 1 < 0 {
             CustomAudioManager.shared.index = CustomAudioManager.shared.audios.count - 1
@@ -274,5 +305,36 @@ public class CustomAudioManager: NSObject {
         }
         CustomAudioManager.shared.playAudioUsingCurrentIndex(timeOut, handler: handler)
     }
+
+    /** Get the current status of player - playing, paused, downloading, unknown */
+    public var playerStatus: CustomAudioPlayerStatus {
+        get {
+            return CustomAudioPlayer.shared.getStatusOfPlayer()
+        }
+    }
     
+    /** the duration of the sound. */
+    public var playerAudioDuration: TimeInterval {
+        get {
+            if let player = CustomAudioPlayer.shared.player {
+                return player.duration
+            } else {
+                return 0.000
+            }
+        }
+    }
+    
+    /**
+     If the sound is playing, currentTime is the offset into the sound of the current playback position.
+     If the sound is not playing, currentTime is the offset into the sound where playing would start.
+    */
+    public var playerAudioCurrentTime: TimeInterval {
+        get {
+            if let player = CustomAudioPlayer.shared.player {
+                return player.currentTime
+            } else {
+                return 0.000
+            }
+        }
+    }
 }
