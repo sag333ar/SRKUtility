@@ -22,6 +22,8 @@ class CustomAudioPlayer: NSObject {
     
     var player: AVAudioPlayer?
     var downloadTask: URLSessionDownloadTask?
+    var finishHandler: ((_ player: AVAudioPlayer, _ successfullyFlag: Bool) -> Void)?
+    var failHandler: ((_ player: AVAudioPlayer, _ error: Error?) -> Void)?
     
     func setMediaItemProperties(_ url: URL) {
         let mpic = MPNowPlayingInfoCenter.default()
@@ -126,8 +128,7 @@ class CustomAudioPlayer: NSObject {
         self.downloadTask = CustomAudioPlayer.loadCachedFile(urlString, timeout: timeOut) { (filePath: String) -> Void in
             OperationQueue.main.addOperation {
                 if filePath.characters.count > 0 {
-                    let docDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
-                    CustomAudioPlayer.shared.playAudio( docDir + "/" + filePath)
+                    CustomAudioPlayer.shared.playAudio(filePath)
                     handler(false)
                 } else {
                     handler(true)
@@ -154,7 +155,7 @@ class CustomAudioPlayer: NSObject {
 
 }
 
-extension CustomAudioPlayer {
+extension CustomAudioPlayer: AVAudioPlayerDelegate {
     
     class func removeURLEncoding(_ string: String) -> String {
         return string.removingPercentEncoding!
@@ -168,10 +169,15 @@ extension CustomAudioPlayer {
         return anotherStr
     }
     
+    class public var docDir: String {
+        get {
+            return NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
+        }
+    }
+    
     class func writeFile(_ tempFilePathURL: URL, fileName: String) throws {
         let fm = FileManager.default
-        let docDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
-        let filePath = docDir + "/" + fileName
+        let filePath = CustomAudioPlayer.docDir + "/" + fileName
         let docDirFileURL = URL(fileURLWithPath: filePath)
         do {
             try fm.copyItem(at: tempFilePathURL, to: docDirFileURL)
@@ -189,7 +195,7 @@ extension CustomAudioPlayer {
                     let anotherStr = self.generatedLocalURL(urlString)
                     do {
                         try self.writeFile(location!, fileName: anotherStr)
-                        handler(anotherStr)
+                        handler(CustomAudioPlayer.docDir + "/" + anotherStr)
                     } catch {
                         handler("")
                     }
@@ -205,20 +211,39 @@ extension CustomAudioPlayer {
     class func isFileDownloaded(_ urlString: String) -> Bool {
         let anotherStr = CustomAudioPlayer.generatedLocalURL(urlString)
         let fm = FileManager.default
-        let docDir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]
-        let filePath = docDir + "/" + anotherStr
+        let filePath = CustomAudioPlayer.docDir + "/" + anotherStr
         return fm.fileExists(atPath: filePath)
     }
     
     class func loadCachedFile(_ forURLString: String, timeout: Int, handler: @escaping (String) -> Void) -> URLSessionDownloadTask? {
-        if CustomAudioPlayer.isFileDownloaded(forURLString) {
-            handler(CustomAudioPlayer.generatedLocalURL(forURLString))
+        if forURLString.hasPrefix("file") {
+            if FileManager.default.fileExists(atPath: forURLString) {
+                handler(forURLString)
+            } else {
+                handler("")
+            }
             return nil
         } else {
-            return CustomAudioPlayer.downloadFile(forURLString, timeout: timeout, handler: handler)
+            if CustomAudioPlayer.isFileDownloaded(forURLString) {
+                handler(CustomAudioPlayer.docDir + "/" + CustomAudioPlayer.generatedLocalURL(forURLString))
+                return nil
+            } else {
+                return CustomAudioPlayer.downloadFile(forURLString, timeout: timeout, handler: handler)
+            }
         }
     }
 
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if let handler = self.finishHandler {
+            handler(player, flag)
+        }
+    }
+
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        if let handler = self.failHandler {
+            handler(player, error)
+        }
+    }
 }
 
 public class CustomAudioManager: NSObject {
@@ -306,6 +331,16 @@ public class CustomAudioManager: NSObject {
             CustomAudioManager.shared.index = CustomAudioManager.shared.index - 1
         }
         CustomAudioManager.shared.playAudioUsingCurrentIndex(timeOut, handler: handler)
+    }
+
+    /** Add handler for event - Did finish playing current audio */
+    public func handleAudioPlayerDidFinishPlayingAction(_ handler: @escaping (_ player: AVAudioPlayer, _ successfullyFlag: Bool) -> Void) {
+        CustomAudioPlayer.shared.finishHandler = handler
+    }
+
+    /** Add handler for event - Did fail playing audio */
+    public func handleAudioPlayerDidFail(_ handler: @escaping (_ player: AVAudioPlayer, _ error: Error?) -> Void) {
+        CustomAudioPlayer.shared.failHandler = handler
     }
 
     /** Get the current status of player - playing, paused, downloading, unknown */
