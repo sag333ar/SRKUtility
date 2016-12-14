@@ -281,7 +281,14 @@ public class CustomAudioManager: NSObject {
     public var audios: [String] = []
     
     /** Set the index for Audio play */
-    public var index = 0
+    var index = 0
+	
+	/** Get the index for Audio play */
+	public var currentIndex: Int {
+		get {
+			return self.index
+		}
+	}
     
     func downloadAndPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         CustomAudioPlayer.shared.downloadAndPlayAudio(CustomAudioManager.shared.audios[CustomAudioManager.shared.index], timeOut: timeOut, handler: handler)
@@ -295,9 +302,23 @@ public class CustomAudioManager: NSObject {
         CustomAudioPlayer.shared.pausePlayer()
         CustomAudioManager.shared.downloadAndPlayAudio(timeOut, handler: handler)
     }
-    
+	
+	/** Download and Play Audio form provided index */
+	public func actionPlayAudio(_ timeOut: Int, index: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
+		if CustomAudioPlayer.shared.isPaused() && index == CustomAudioManager.shared.index {
+			CustomAudioPlayer.shared.resume()
+			handler(false)
+		} else if CustomAudioPlayer.shared.isPlaying() && index == CustomAudioManager.shared.index {
+			print("Do nothing. Already playing.")
+			handler(false)
+		} else {
+			CustomAudioManager.shared.index = index
+			CustomAudioManager.shared.playAudioUsingCurrentIndex(timeOut, handler: handler)
+		}
+	}
+	
     /** Download and Play Audio form current index */
-    public func actionPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
+    func actionPlayAudio(_ timeOut: Int, handler: @escaping (_ hasErrors: Bool) -> Void) {
         if CustomAudioPlayer.shared.isPaused() {
             CustomAudioPlayer.shared.resume()
             handler(false)
