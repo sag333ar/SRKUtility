@@ -63,6 +63,7 @@ class CustomAudioPlayer: NSObject {
             self.player = try AVAudioPlayer(contentsOf: url)
             self.player!.numberOfLoops = -1
             self.player!.prepareToPlay()
+			self.player!.delegate = self
             self.player!.play()
             self.setMediaItemProperties(url)
         } catch {
