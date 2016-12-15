@@ -217,7 +217,7 @@ extension CustomAudioPlayer: AVAudioPlayerDelegate {
     }
     
     class func loadCachedFile(_ forURLString: String, timeout: Int, handler: @escaping (String) -> Void) -> URLSessionDownloadTask? {
-        if forURLString.hasPrefix("file") {
+        if forURLString.hasPrefix("/") || forURLString.hasPrefix("/var") || forURLString.hasPrefix("/User") {
             if FileManager.default.fileExists(atPath: forURLString) {
                 handler(forURLString)
             } else {
