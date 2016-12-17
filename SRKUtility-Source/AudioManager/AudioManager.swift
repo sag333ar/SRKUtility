@@ -71,6 +71,17 @@ class CustomAudioPlayer: NSObject {
         }
     }
     
+    func cleanPlayer() {
+        if CustomAudioPlayer.shared.player != nil {
+            if let task = self.downloadTask {
+                task.cancel()
+            }
+            CustomAudioPlayer.shared.player?.pause()
+            CustomAudioPlayer.shared.player?.stop()
+            CustomAudioPlayer.shared.player = nil
+        }
+    }
+    
     func pausePlayer() {
         if let player = CustomAudioPlayer.shared.player {
             if player.rate != 0 && player.isPlaying == true {
@@ -278,7 +289,21 @@ public class CustomAudioManager: NSObject {
     }
     
     /** Set the audio URLs to play */
-    public var audios: [String] = []
+    public var audios: [String] {
+        get {
+            return self.internalAudios
+        }
+        set {
+            if self.internalAudios != newValue {
+                self.internalAudios = newValue
+                if CustomAudioManager.shared.playerStatus == .Playing {
+                    CustomAudioManager.shared.actionPauseAudio()
+                }
+                CustomAudioPlayer.shared.cleanPlayer()
+            }
+        }
+    }
+    var internalAudios: [String] = []
     
     /** Set the index for Audio play */
     var index = 0
